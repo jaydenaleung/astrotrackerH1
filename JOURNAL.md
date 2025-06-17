@@ -55,3 +55,10 @@ I CADed this onto the rotational plate (RA plate), which I then connected via a 
 ![Screenshot 2025-06-16 at 3 56 46 PM](https://github.com/user-attachments/assets/783d44ad-d46f-4438-8027-3682df74224d)
 
 **Total time spent: 5.5h**
+
+
+# June 16th: CADing the Swivel Plate and Adding Accurate Part Models
+
+Text to go here
+
+**Total time spent: 5h**
