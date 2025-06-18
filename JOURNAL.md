@@ -59,8 +59,13 @@ I CADed this onto the rotational plate (RA plate), which I then connected via a 
 
 # June 16th: CADing the Swivel Plate and Adding Accurate Part Models
 
-Text to go here
+I spent today adding the functionality for the swivel plate (the plate that is connected to the RA plate by a hinge) by creating a housing for another NEMA 17 stepper motor with a 51:1 gear reduction gearbox. On top of the motor sits a thrust ball bearing, and on top of that sits the swivel plate and the entire mechanism with it. Next time, when I put the finishing touches on my CAD model, I'll make sure to add arms to the housing that curve up to support the heavy swivel plate; I didn't get to do it this time. This is a crucial part of the device since it rotates the RA plate to face Polaris on the azimuthal axis. However, I do have some reservations about allowing the entire mechanism (possibly ~500g) to sit on top of a ball bearing and a motor housing, especially when considering the extra 1-2kg load put on by the camera and its opposing counterweight. Those changes will have to be determined after printing and testing.
 
+In case you're confused about how I spent five hours on this, I had to first research the best way to effectively rotate the swivel plate, run calculations to find the best motor gearbox that would allow for enough torque, and find the best bearing that would work for this. I also finally decided to spend some time finding online models of the motors and bearings I was using. To my great surprise, downloading the files as STEP files instead of STL files made it SO MUCH EASIER because I was working with solid, editable parts rather than meshes. Onshape was much friendlier to me with these files because of this. I was surprised because I thought I had tried this before with an earlier plane project, and they still were meshes. Meshes or not, this greatly simplified my work as it allowed me to make the right edits to these models to ensure they were accurate to the specific motor dimensions I was working with.
+
+For reference, here are some great websites and libraries of CAD models that were helpfuL: [https://grabcad.com/library](url), [www.traceparts.com/en](url), [https://www.thingiverse.com/](url), (next two are more STLs and 3D printing files, along with Thingiverse) [https://cults3d.com/](url), [https://www.printables.com/](url)
+
+Pictures of the updated assembly!
 ![Screenshot 2025-06-17 at 5 20 49 AM](https://github.com/user-attachments/assets/d32584bc-ba68-4fcf-bcbe-5e21ac2d3bae)
 ![Screenshot 2025-06-17 at 5 21 13 AM](https://github.com/user-attachments/assets/60842a6a-b461-44aa-babe-4d40f0bbe2f5)
 ![Screenshot 2025-06-17 at 5 21 43 AM](https://github.com/user-attachments/assets/c7280587-61b4-449a-a857-1b97eacecad4)
