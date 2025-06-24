@@ -84,4 +84,21 @@ Before I reveal the final result, I'll list the changes I made:
 - Added real models of the NEMA 17 stepper motors
 - Created and added housing for the NEMA 17 gearbox that turns the whole mechanism
 - Implemented a thrust bearing to make the turning of the mechanism smoother
-- 
+- Added arms onto the motor housing to better support the heavy mechanism, using ball bearings to reduce friction
+- Added compatibility for the polar scope
+- Added a mount for the camera and its counterweight
+- Added a restraining clip to hold the gear and camera mount down
+- Added a bubble/spirit level on the swivel plate for extra accuracy
+- Placed ball bearing model into the assembly
+- Placed polar scope model into the assembly
+- Placed camera, camera mount, counterweight, and 1/4-20 screws for the camera into the assembly
+- Placed tripod into the assembly
+- Changed colors to dark grey-orange to reflect my tripod
+![Screenshot 2025-06-23 at 8 30 47 PM](https://github.com/user-attachments/assets/4a3fc981-2f9d-4941-af63-73788ed790f3)
+
+Here are the final results! I'll update the model again after I'm finished with the PCB design, and I'll add a housing for the PCB.
+![Screenshot 2025-06-23 at 8 30 19 PM](https://github.com/user-attachments/assets/48125de6-afaf-42fb-a79b-6b6c07bfe767)
+![Screenshot 2025-06-23 at 8 30 32 PM](https://github.com/user-attachments/assets/826a3012-46d4-481e-9260-dc46552d5d4b)
+![Screenshot 2025-06-23 at 7 49 47 PM](https://github.com/user-attachments/assets/93af6a85-16c8-4cfe-a166-5be8a48e5616)
+
+**Total time spent: 9h**
