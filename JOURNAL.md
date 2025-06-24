@@ -74,3 +74,14 @@ Pictures of the updated assembly!
 ![Screenshot 2025-06-17 at 5 22 08 AM](https://github.com/user-attachments/assets/0947ef17-1933-4952-9031-e7eafcece23c)
 
 **Total time spent: 5h**
+
+
+# June 18-23: Finishing the CAD (for now)
+
+Throughout these six days (I was working quite sporadically, which is why it took so long), I finally finished adding the final touches and reference model to my assembly. It looks great!! I employed a dark grey-orange color scheme to match the color of my tripod.
+
+Before I reveal the final result, I'll list the changes I made:
+- Added real models of the NEMA 17 stepper motors
+- Created and added housing for the NEMA 17 gearbox that turns the whole mechanism
+- Implemented a thrust bearing to make the turning of the mechanism smoother
+- 
