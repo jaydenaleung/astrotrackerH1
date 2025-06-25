@@ -1,4 +1,4 @@
-25639570449248435
+25639570535207506
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -70697,7 +70697,7 @@ GPS NEO-8M
 
 
 0
-8
+4
 4
 NetTie
 NetTie-2_SMD_Pad0.5mm
@@ -102813,5 +102813,5 @@ i2c_LCD
 
 
 0
-8
+4
 4
