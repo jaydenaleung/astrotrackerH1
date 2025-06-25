@@ -127,4 +127,15 @@ Here's a custom footprint I made:
 
 
 # June 25: Routing & Finishing the PCB
+
+To be honest, I thought routing the board would be a pain because of the immense number of wires I placed down in the schematic. It was actually pretty chill... except for the insane amount of vias I placed down (4+ vias on one connection??). However, it still stands now as one of my favorite parts of the engineering process. It's very satisfying to route the PCB and see your work come to life; in fact, seeing the fruits of my efforts so quickly is one of the primary reasons I do engineering in the first place.
+
+It wasn't without some effort, however. I had to fix a few things on the schematic that the DRC picked up (pin numbers, annotations, file changes, etc.), as well as place the footprints in the right place. I spent a good amount of time trying to figure out how to put certain footprints on the back, only to find out you just have to press 'F'. I wanted to place them on the back so I could have the LCD screen and buttons in the front and all the microcontrollers/logic/drivers/etc. out of the way. It did come with the nice benefit of being able to place the footprints on top of each other to save space (given that the through-holes don't touch). After adjusting the Edge.cuts rectangle to extend 3mm from the outmost point on each side, I began routing.
+
+Here's my finished PCB layout, before routing:
+PICTURE
+
+And after:
+PICTURE
+
 **Total time spent: 3.5hr**
