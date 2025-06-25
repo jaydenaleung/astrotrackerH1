@@ -113,17 +113,15 @@ Here are the final results! I'll update the model again after I'm finished with 
 
 # June 24: PCB Part Sourcing & Schematic
 
-As I got started on my PCB design (which, as I found being a beginner, had a steep learning curve), I quickly ran into trouble sourcing parts, symbols, footprints, and the like. I found SnapEDA.com (and surprisingly, no other websites) to be really helpful in this, until I encountered the "No 2D model" (symbol or footprint) label for some parts. These were mostly the parts that weren't as common, such as the QMC5883L compass module I was using, so I had to learn how to make the footprints and symbols by hand. While it was certainly frustrating and time-consuming, I think it was a good excercise as I heard from people around the internet that that was a common area of PCB design. I had to make "empirical measurements," which really involved me putting a clear, plastic ruler to my computer screen to measure my parts for my custom footprints. Fortunately, I don't think they were too inaccurate, but I'd have to check that when my PCB is delivered.
+As I got started on my PCB design (which, as I found being a beginner, had a steep learning curve), I quickly ran into trouble sourcing parts, symbols, footprints, and the like. I found [snapeda.com](url) (and surprisingly, no other websites) to be really helpful in this, until I encountered the "No 2D model" (symbol or footprint) label for some parts. These were mostly the parts that weren't as common, such as the QMC5883L compass module I was using, so I had to learn how to make the footprints and symbols by hand. While it was certainly frustrating and time-consuming, I think it was a good excercise as I heard from people around the internet that that was a common area of PCB design. I had to make "empirical measurements," which really involved me putting a clear, plastic ruler to my computer screen to measure my parts for my custom footprints. Fortunately, I don't think they were too inaccurate, but I'd have to check that when my PCB is delivered.
 
 Because of the reasons mentioned above, I think that the PCB design step was the hardest (at least so far). Surprisingly, it took only half the time as to do CAD, which I was already pretty proficient in. I certainly learned a lot. For example, someone on the Slack told me I could just use net flags instead of a ton of wires. Also, (about) seven and a half hours! It was certainly a sprint... but Undercity is a marathon! (get it, because it's a hackathon... haha...)
 
 Here's the schematic:
-PICTURE
+![image](https://github.com/user-attachments/assets/9a216d7a-0506-446e-a1d0-45249d398259)
 
 Here's a custom footprint I made:
-PICTURE
-
-**INSERT LINKS**
+![image](https://github.com/user-attachments/assets/d043d100-348c-4f76-9269-876968925a2e)
 
 **Total time spent: 7.5hr**
 
