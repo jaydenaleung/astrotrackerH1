@@ -1,0 +1,1 @@
+Use the "Stepper_Motor_bipolar" symbol for the NEMA 17 stepper motor & manually assign the footprint to it.
