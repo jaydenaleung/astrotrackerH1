@@ -1,0 +1,1 @@
+Use the "SW_Push" schematic and assign it to the "SW_PUSH_6mm" footprint in KiCad 9.0.

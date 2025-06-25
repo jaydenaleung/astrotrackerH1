@@ -1313,15 +1313,15 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "NEO-8M"
-				(at 0 0 0)
+			(property "Reference" "U"
+				(at -8.382 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" ""
+			(property "Value" "NEO-8M"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1378,7 +1378,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1396,7 +1396,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1414,7 +1414,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1432,7 +1432,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1447,7 +1447,15 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "QMC5883L_COMPASS"
+			(property "Reference" "U"
+				(at 0 -5.842 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "QMC5883L_COMPASS"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1455,16 +1463,8 @@
 					)
 				)
 			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
+			(property "Footprint" "QMC5883L:QMC5883L"
+				(at 0 -2.54 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1512,7 +1512,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1530,7 +1530,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1548,7 +1548,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1566,7 +1566,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1584,7 +1584,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "5"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1595,7 +1595,10 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Switch:SW_Push_Open_Dual"
+		(symbol "Switch:SW_Push"
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 1.016)
 				(hide yes)
@@ -1604,15 +1607,16 @@
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "SW"
-				(at 0 3.81 0)
+				(at 1.27 2.54 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
-			(property "Value" "SW_Push_Open_Dual"
-				(at 0 -7.62 0)
+			(property "Value" "SW_Push"
+				(at 0 -1.524 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1637,7 +1641,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Push button switch, normally closed, generic, four pins"
+			(property "Description" "Push button switch, generic, two pins"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1646,7 +1650,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "switch normally-closed pushbutton push-button"
+			(property "ki_keywords" "switch normally-open pushbutton push-button"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1655,7 +1659,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "SW_Push_Open_Dual_0_1"
+			(symbol "SW_Push_0_1"
 				(circle
 					(center -2.032 0)
 					(radius 0.508)
@@ -1667,80 +1671,9 @@
 						(type none)
 					)
 				)
-				(circle
-					(center -2.032 -5.08)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
 				(polyline
 					(pts
-						(xy 0 -0.635) (xy 0 1.143)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -1.397) (xy 0 -0.889)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.413) (xy 0 -1.905)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -3.429) (xy 0 -2.921)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -3.937) (xy 0 -4.445)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -4.953) (xy 0 -5.461)
+						(xy 0 1.27) (xy 0 3.048)
 					)
 					(stroke
 						(width 0)
@@ -1761,32 +1694,9 @@
 						(type none)
 					)
 				)
-				(circle
-					(center 2.032 -5.08)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
 				(polyline
 					(pts
-						(xy 2.54 -0.635) (xy -2.54 -0.635)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 -5.715) (xy -2.54 -5.715)
+						(xy 2.54 1.27) (xy -2.54 1.27)
 					)
 					(stroke
 						(width 0)
@@ -1815,24 +1725,6 @@
 					)
 				)
 				(pin passive line
-					(at -5.08 -5.08 0)
-					(length 2.54)
-					(name "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
 					(at 5.08 0 180)
 					(length 2.54)
 					(name "2"
@@ -1848,37 +1740,6 @@
 								(size 1.27 1.27)
 							)
 						)
-					)
-				)
-				(pin passive line
-					(at 5.08 -5.08 180)
-					(length 2.54)
-					(name "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(symbol "SW_Push_Open_Dual_1_1"
-				(rectangle
-					(start -3.175 1.905)
-					(end 3.175 -6.35)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type background)
 					)
 				)
 			)
@@ -2400,7 +2261,15 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "i2c_LCD"
+			(property "Reference" "U"
+				(at 0 3.556 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "i2c_LCD"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2408,15 +2277,7 @@
 					)
 				)
 			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
+			(property "Footprint" "i2c_LCD:i2c_LCD"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2465,7 +2326,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2483,7 +2344,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2501,7 +2362,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2519,7 +2380,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2824,6 +2685,18 @@
 		(uuid "3e3b4362-b5f9-422c-b128-60779d141f97")
 	)
 	(junction
+		(at 93.98 33.02)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "476d201e-194d-48af-8ad0-f64003b2a567")
+	)
+	(junction
+		(at 69.85 53.34)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "48f7d56c-0a76-40eb-a954-81a248dc9e3e")
+	)
+	(junction
 		(at 151.13 138.43)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2848,6 +2721,18 @@
 		(uuid "576379dd-4694-49bd-83dc-2457ede2ce61")
 	)
 	(junction
+		(at 156.21 27.94)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "65037c98-2fe5-42b5-b186-be7535001e4a")
+	)
+	(junction
+		(at 128.27 48.26)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6c1149f0-86cc-4398-9bd6-59b21982137a")
+	)
+	(junction
 		(at 161.29 116.84)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2866,6 +2751,12 @@
 		(uuid "93bfe2ac-ffdf-4446-ad81-bd8152a35b51")
 	)
 	(junction
+		(at 156.21 53.34)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "93e864c7-f81d-40dc-beb5-3aa2d5eb1d5a")
+	)
+	(junction
 		(at 87.63 60.96)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2876,6 +2767,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a5ef7342-7ebb-49f6-8166-678a6d4c920b")
+	)
+	(junction
+		(at 91.44 53.34)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a72adc01-296a-4242-908c-f6690db33326")
 	)
 	(junction
 		(at 161.29 140.97)
@@ -2954,6 +2851,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f7354551-e5d3-4e2f-9c9c-71cd0cc860a7")
+	)
+	(junction
+		(at 125.73 27.94)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ff4b3656-bcb3-423e-9593-ead8fd3ef8e7")
 	)
 	(wire
 		(pts
@@ -3087,6 +2990,16 @@
 	)
 	(wire
 		(pts
+			(xy 93.98 33.02) (xy 93.98 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "09484a2b-0f63-40a1-b2ce-1ef90ecd89db")
+	)
+	(wire
+		(pts
 			(xy 137.16 74.93) (xy 153.67 74.93)
 		)
 		(stroke
@@ -3177,7 +3090,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 53.34) (xy 156.21 53.34)
+			(xy 148.59 48.26) (xy 156.21 48.26)
 		)
 		(stroke
 			(width 0)
@@ -3194,6 +3107,26 @@
 			(type default)
 		)
 		(uuid "179fafe4-e51e-40b8-b014-e7ccbcf85138")
+	)
+	(wire
+		(pts
+			(xy 125.73 33.02) (xy 125.73 27.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1876b6a9-e27a-4898-afb2-d336bf95de5e")
+	)
+	(wire
+		(pts
+			(xy 81.28 53.34) (xy 91.44 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1a721728-de6e-4c62-801e-771989eba5a6")
 	)
 	(wire
 		(pts
@@ -3277,7 +3210,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 33.02) (xy 93.98 80.01)
+			(xy 93.98 27.94) (xy 93.98 33.02)
 		)
 		(stroke
 			(width 0)
@@ -3317,7 +3250,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 33.02) (xy 127 17.78)
+			(xy 125.73 27.94) (xy 125.73 16.51)
 		)
 		(stroke
 			(width 0)
@@ -3354,16 +3287,6 @@
 			(type default)
 		)
 		(uuid "2c569130-65d5-426a-8ff8-1c34361deeca")
-	)
-	(wire
-		(pts
-			(xy 156.21 33.02) (xy 156.21 15.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2d31516d-99d4-44c0-aca6-bc6d1e2d9c89")
 	)
 	(wire
 		(pts
@@ -3507,7 +3430,7 @@
 	)
 	(wire
 		(pts
-			(xy 119.38 53.34) (xy 128.27 53.34)
+			(xy 119.38 48.26) (xy 128.27 48.26)
 		)
 		(stroke
 			(width 0)
@@ -3547,6 +3470,16 @@
 	)
 	(wire
 		(pts
+			(xy 156.21 33.02) (xy 156.21 27.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "40c555f9-3758-4933-97f5-a5ed47fc5364")
+	)
+	(wire
+		(pts
 			(xy 260.35 59.69) (xy 260.35 68.58)
 		)
 		(stroke
@@ -3577,7 +3510,7 @@
 	)
 	(wire
 		(pts
-			(xy 39.37 17.78) (xy 39.37 66.04)
+			(xy 39.37 16.51) (xy 39.37 66.04)
 		)
 		(stroke
 			(width 0)
@@ -3677,16 +3610,6 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 53.34) (xy 91.44 87.63)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5321684b-6307-496d-8431-61f43dee081e")
-	)
-	(wire
-		(pts
 			(xy 220.98 135.89) (xy 226.06 135.89)
 		)
 		(stroke
@@ -3727,7 +3650,27 @@
 	)
 	(wire
 		(pts
-			(xy 127 17.78) (xy 39.37 17.78)
+			(xy 109.22 53.34) (xy 128.27 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "55dd538f-1592-40c8-9739-fb48d23ab00f")
+	)
+	(wire
+		(pts
+			(xy 156.21 53.34) (xy 156.21 162.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "56f90bdf-e708-4c4d-9c24-c0ecd55f0648")
+	)
+	(wire
+		(pts
+			(xy 125.73 16.51) (xy 39.37 16.51)
 		)
 		(stroke
 			(width 0)
@@ -3737,7 +3680,7 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 53.34) (xy 69.85 95.25)
+			(xy 69.85 48.26) (xy 69.85 53.34)
 		)
 		(stroke
 			(width 0)
@@ -3764,6 +3707,16 @@
 			(type default)
 		)
 		(uuid "5989b74d-7dd6-4c49-adf2-20d7215f0405")
+	)
+	(wire
+		(pts
+			(xy 128.27 53.34) (xy 128.27 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5aa822c2-be8e-4ea9-91fb-48df7423516d")
 	)
 	(wire
 		(pts
@@ -4047,7 +4000,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 33.02) (xy 156.21 33.02)
+			(xy 148.59 27.94) (xy 156.21 27.94)
 		)
 		(stroke
 			(width 0)
@@ -4067,7 +4020,7 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 33.02) (xy 93.98 33.02)
+			(xy 91.44 27.94) (xy 93.98 27.94)
 		)
 		(stroke
 			(width 0)
@@ -4137,7 +4090,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 53.34) (xy 69.85 53.34)
+			(xy 63.5 48.26) (xy 69.85 48.26)
 		)
 		(stroke
 			(width 0)
@@ -4174,6 +4127,16 @@
 			(type default)
 		)
 		(uuid "81d16f7d-b23b-4e4c-9cd8-e61815b2888e")
+	)
+	(wire
+		(pts
+			(xy 81.28 33.02) (xy 93.98 33.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "82bf6fc2-b517-4ae7-b07b-e874173be02b")
 	)
 	(wire
 		(pts
@@ -4307,6 +4270,16 @@
 	)
 	(wire
 		(pts
+			(xy 138.43 33.02) (xy 156.21 33.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9a40d339-a826-42a6-919e-a0e36b45db9b")
+	)
+	(wire
+		(pts
 			(xy 69.85 127) (xy 69.85 115.57)
 		)
 		(stroke
@@ -4374,6 +4347,16 @@
 			(type default)
 		)
 		(uuid "a0c53f10-df99-49e6-8e9b-0ec110e0e180")
+	)
+	(wire
+		(pts
+			(xy 156.21 27.94) (xy 156.21 15.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a268e2a1-a277-472c-98d9-5674455638b0")
 	)
 	(wire
 		(pts
@@ -4457,6 +4440,16 @@
 	)
 	(wire
 		(pts
+			(xy 109.22 33.02) (xy 125.73 33.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ab440df7-d584-4991-81c4-c905ac15fed0")
+	)
+	(wire
+		(pts
 			(xy 109.22 40.64) (xy 104.14 40.64)
 		)
 		(stroke
@@ -4494,6 +4487,16 @@
 			(type default)
 		)
 		(uuid "b1b1510a-8043-4af9-a85d-1956c924bdef")
+	)
+	(wire
+		(pts
+			(xy 138.43 53.34) (xy 156.21 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b24e4ab7-8579-4eb1-9b44-1f206815a78e")
 	)
 	(wire
 		(pts
@@ -4604,6 +4607,16 @@
 			(type default)
 		)
 		(uuid "bd03cfb2-e91b-49b5-bb83-60ee0e50bd67")
+	)
+	(wire
+		(pts
+			(xy 69.85 53.34) (xy 69.85 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bd13b255-f7db-4482-b126-ec13b8e3b7cd")
 	)
 	(wire
 		(pts
@@ -4827,7 +4840,7 @@
 	)
 	(wire
 		(pts
-			(xy 52.07 53.34) (xy 53.34 53.34)
+			(xy 52.07 53.34) (xy 69.85 53.34)
 		)
 		(stroke
 			(width 0)
@@ -4837,7 +4850,7 @@
 	)
 	(wire
 		(pts
-			(xy 119.38 33.02) (xy 127 33.02)
+			(xy 119.38 27.94) (xy 125.73 27.94)
 		)
 		(stroke
 			(width 0)
@@ -4907,7 +4920,7 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 53.34) (xy 156.21 162.56)
+			(xy 156.21 48.26) (xy 156.21 53.34)
 		)
 		(stroke
 			(width 0)
@@ -4924,6 +4937,16 @@
 			(type default)
 		)
 		(uuid "dcd8c2a4-9a54-46b4-9f4e-d025b2eeda3c")
+	)
+	(wire
+		(pts
+			(xy 91.44 48.26) (xy 91.44 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dd57dc98-b9d0-4a5c-ae8f-454f63ee160d")
 	)
 	(wire
 		(pts
@@ -5087,7 +5110,7 @@
 	)
 	(wire
 		(pts
-			(xy 128.27 53.34) (xy 128.27 13.97)
+			(xy 128.27 48.26) (xy 128.27 13.97)
 		)
 		(stroke
 			(width 0)
@@ -5217,6 +5240,16 @@
 	)
 	(wire
 		(pts
+			(xy 91.44 53.34) (xy 91.44 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fe58ff63-9fc2-4aed-bf2c-74f5535261f7")
+	)
+	(wire
+		(pts
 			(xy 214.63 81.28) (xy 234.95 81.28)
 		)
 		(stroke
@@ -5236,7 +5269,7 @@
 		(uuid "fffeb148-ec32-4651-a1eb-443cdb0bc5ec")
 	)
 	(symbol
-		(lib_id "Switch:SW_Push_Open_Dual")
+		(lib_id "Switch:SW_Push")
 		(at 58.42 48.26 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5246,22 +5279,22 @@
 		(fields_autoplaced yes)
 		(uuid "134dc8ed-700f-4e2f-936f-cb629b479938")
 		(property "Reference" "SW7"
-			(at 58.42 41.91 0)
+			(at 58.42 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "SW_Push_Open_Dual"
-			(at 58.42 44.45 0)
+		(property "Value" "SW_Push"
+			(at 58.42 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
 			(at 58.42 43.18 0)
 			(effects
 				(font
@@ -5279,7 +5312,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Push button switch, normally closed, generic, four pins"
+		(property "Description" "Push button switch, generic, two pins"
 			(at 58.42 48.26 0)
 			(effects
 				(font
@@ -5291,94 +5324,13 @@
 		(pin "2"
 			(uuid "c3aa1c1c-8c8d-4a68-b0a6-9f8c065194d9")
 		)
-		(pin "4"
-			(uuid "8f0b821e-bad2-4480-afee-c7a068c16697")
-		)
 		(pin "1"
 			(uuid "f5f160ff-819a-4ee1-bcc0-004cac8e6c7e")
-		)
-		(pin "3"
-			(uuid "60ceddf3-221b-4c6a-b542-62f4b9cb5bed")
 		)
 		(instances
 			(project "astrotracker"
 				(path "/788dc6bb-2b47-4703-aad3-bc9b8cbddc73"
 					(reference "SW7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "i2c_LCD:i2c_LCD")
-		(at 118.11 156.21 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "1fd94764-16b2-49bb-b398-c18c7a69d130")
-		(property "Reference" "i2c_LCD1"
-			(at 117.856 151.892 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "~"
-			(at 118.11 162.56 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 118.11 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 118.11 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 118.11 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin ""
-			(uuid "1fe204ae-02ed-46a5-9540-424d917dae60")
-		)
-		(pin ""
-			(uuid "03576921-77db-401a-89ed-649b129054d5")
-		)
-		(pin ""
-			(uuid "338d0d59-7226-4460-9b38-b947ac3bd8fa")
-		)
-		(pin ""
-			(uuid "a9b2fe3b-862d-4ea9-aa03-1964da550cba")
-		)
-		(instances
-			(project ""
-				(path "/788dc6bb-2b47-4703-aad3-bc9b8cbddc73"
-					(reference "i2c_LCD1")
 					(unit 1)
 				)
 			)
@@ -5412,7 +5364,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 107.442 36.83 90)
 			(effects
 				(font
@@ -5546,7 +5498,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TMC2209_SILENTSTEPSTICK:MODULE_TMC2209_SILENTSTEPSTICK"
+		(property "Footprint" "TMC2209_MODULE:MODULE_TMC2209_SILENTSTEPSTICK"
 			(at 187.96 41.91 0)
 			(effects
 				(font
@@ -5758,7 +5710,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_Push_Open_Dual")
+		(lib_id "Switch:SW_Push")
 		(at 114.3 48.26 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5768,22 +5720,22 @@
 		(fields_autoplaced yes)
 		(uuid "39950225-cd28-4cae-b3f0-4143b776e06a")
 		(property "Reference" "SW5"
-			(at 114.3 41.91 0)
+			(at 114.3 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "SW_Push_Open_Dual"
-			(at 114.3 44.45 0)
+		(property "Value" "SW_Push"
+			(at 114.3 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
 			(at 114.3 43.18 0)
 			(effects
 				(font
@@ -5801,7 +5753,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Push button switch, normally closed, generic, four pins"
+		(property "Description" "Push button switch, generic, two pins"
 			(at 114.3 48.26 0)
 			(effects
 				(font
@@ -5813,14 +5765,8 @@
 		(pin "2"
 			(uuid "9d68113c-01cb-43f6-845e-2ccee5b6ff51")
 		)
-		(pin "4"
-			(uuid "742b7a52-22ff-4834-94b1-19226ac7e6fb")
-		)
 		(pin "1"
 			(uuid "325aa2fa-e0a7-4752-bea4-91f9024d0826")
-		)
-		(pin "3"
-			(uuid "30a1de18-a371-4f55-9638-c53c75025444")
 		)
 		(instances
 			(project "astrotracker"
@@ -5859,7 +5805,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "NEMA_17:NEMA-17"
 			(at 233.934 40.894 0)
 			(effects
 				(font
@@ -5933,7 +5879,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TMC2209_SILENTSTEPSTICK:MODULE_TMC2209_SILENTSTEPSTICK"
+		(property "Footprint" "TMC2209_MODULE:MODULE_TMC2209_SILENTSTEPSTICK"
 			(at 187.96 140.97 0)
 			(effects
 				(font
@@ -6145,7 +6091,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_Push_Open_Dual")
+		(lib_id "Switch:SW_Push")
 		(at 143.51 27.94 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6155,22 +6101,22 @@
 		(fields_autoplaced yes)
 		(uuid "60abca2f-3d34-478e-929f-dbf68bf251a1")
 		(property "Reference" "SW3"
-			(at 143.51 21.59 0)
+			(at 143.51 20.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "SW_Push_Open_Dual"
-			(at 143.51 24.13 0)
+		(property "Value" "SW_Push"
+			(at 143.51 22.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
 			(at 143.51 22.86 0)
 			(effects
 				(font
@@ -6188,7 +6134,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Push button switch, normally closed, generic, four pins"
+		(property "Description" "Push button switch, generic, two pins"
 			(at 143.51 27.94 0)
 			(effects
 				(font
@@ -6200,14 +6146,8 @@
 		(pin "2"
 			(uuid "85b3347b-a91a-488c-8e8f-fbdd7e5907ac")
 		)
-		(pin "4"
-			(uuid "be318a0e-57c1-45c2-9414-71dbe1589376")
-		)
 		(pin "1"
 			(uuid "616257bc-11b5-4fd9-a8f5-a046450c800b")
-		)
-		(pin "3"
-			(uuid "ea8460ae-a054-4185-a8f4-a231ecf8ebee")
 		)
 		(instances
 			(project "astrotracker"
@@ -6246,7 +6186,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 50.292 57.15 90)
 			(effects
 				(font
@@ -6316,7 +6256,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "NEMA_17:NEMA-17"
 			(at 232.664 91.694 0)
 			(effects
 				(font
@@ -6365,7 +6305,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_Push_Open_Dual")
+		(lib_id "Switch:SW_Push")
 		(at 86.36 48.26 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6375,22 +6315,22 @@
 		(fields_autoplaced yes)
 		(uuid "6ce799b4-eb03-4daf-9115-0b1538dda0e7")
 		(property "Reference" "SW4"
-			(at 86.36 41.91 0)
+			(at 86.36 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "SW_Push_Open_Dual"
-			(at 86.36 44.45 0)
+		(property "Value" "SW_Push"
+			(at 86.36 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
 			(at 86.36 43.18 0)
 			(effects
 				(font
@@ -6408,7 +6348,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Push button switch, normally closed, generic, four pins"
+		(property "Description" "Push button switch, generic, two pins"
 			(at 86.36 48.26 0)
 			(effects
 				(font
@@ -6420,94 +6360,13 @@
 		(pin "2"
 			(uuid "b48a6364-1433-4d97-8eaf-071eced1945e")
 		)
-		(pin "4"
-			(uuid "c9bbfa66-b696-4942-9420-4d55785bf137")
-		)
 		(pin "1"
 			(uuid "d4ca6597-a6c6-4a38-b91e-7214330b077d")
-		)
-		(pin "3"
-			(uuid "57871893-6697-48dd-b385-b699ccc76444")
 		)
 		(instances
 			(project "astrotracker"
 				(path "/788dc6bb-2b47-4703-aad3-bc9b8cbddc73"
 					(reference "SW4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "NEO_8M-symbol:GPS_NEO-8M")
-		(at 46.99 114.3 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "6fc7ba04-3ec5-4b78-ab41-bd12cd4f3026")
-		(property "Reference" "NEO-8M1"
-			(at 42.418 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "~"
-			(at 60.96 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "NEO-8M:GPS NEO-8M"
-			(at 44.45 111.506 0)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 46.99 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 46.99 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin ""
-			(uuid "2f9956b1-01b4-40dc-967e-2aea0d07d749")
-		)
-		(pin ""
-			(uuid "3485c4f1-d1ba-417d-ae79-8801ad322a86")
-		)
-		(pin ""
-			(uuid "570e7585-18ef-4aca-a51f-36ba975e41d8")
-		)
-		(pin ""
-			(uuid "190b42fa-4704-45ac-8ee1-894aae62ff16")
-		)
-		(instances
-			(project ""
-				(path "/788dc6bb-2b47-4703-aad3-bc9b8cbddc73"
-					(reference "NEO-8M1")
 					(unit 1)
 				)
 			)
@@ -6541,7 +6400,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "NEMA_17:NEMA-17"
 			(at 233.934 138.684 0)
 			(effects
 				(font
@@ -6590,7 +6449,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_Push_Open_Dual")
+		(lib_id "Switch:SW_Push")
 		(at 114.3 27.94 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6600,22 +6459,22 @@
 		(fields_autoplaced yes)
 		(uuid "728cd17a-de54-4846-a6e0-eec6398d3b52")
 		(property "Reference" "SW2"
-			(at 114.3 21.59 0)
+			(at 114.3 20.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "SW_Push_Open_Dual"
-			(at 114.3 24.13 0)
+		(property "Value" "SW_Push"
+			(at 114.3 22.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
 			(at 114.3 22.86 0)
 			(effects
 				(font
@@ -6633,7 +6492,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Push button switch, normally closed, generic, four pins"
+		(property "Description" "Push button switch, generic, two pins"
 			(at 114.3 27.94 0)
 			(effects
 				(font
@@ -6645,14 +6504,8 @@
 		(pin "2"
 			(uuid "882026ce-eda1-4ae4-88a0-2d0de8c09631")
 		)
-		(pin "4"
-			(uuid "dd6befcc-37f2-4757-8b6f-fc60f6a974d8")
-		)
 		(pin "1"
 			(uuid "015711f0-7b06-49aa-ab61-75f06d19a48d")
-		)
-		(pin "3"
-			(uuid "f4f090f2-1afb-4fa3-be4a-40c51d009f28")
 		)
 		(instances
 			(project "astrotracker"
@@ -6689,7 +6542,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TMC2209_SILENTSTEPSTICK:MODULE_TMC2209_SILENTSTEPSTICK"
+		(property "Footprint" "TMC2209_MODULE:MODULE_TMC2209_SILENTSTEPSTICK"
 			(at 187.96 91.44 0)
 			(effects
 				(font
@@ -6895,6 +6748,81 @@
 			(project ""
 				(path "/788dc6bb-2b47-4703-aad3-bc9b8cbddc73"
 					(reference "U3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "i2c_LCD:i2c_LCD")
+		(at 118.11 156.21 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "902936a6-9c1c-404b-a58d-ccd785b4733d")
+		(property "Reference" "U7"
+			(at 113.792 155.956 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "i2c_LCD"
+			(at 118.872 155.956 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "i2c_LCD:i2c_LCD"
+			(at 118.11 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 118.11 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 118.11 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3fafaaed-4035-4776-8422-4626a4bcc0f8")
+		)
+		(pin "4"
+			(uuid "1a24d4fc-93a6-40f0-bfcd-f03a03122cf9")
+		)
+		(pin "2"
+			(uuid "c961e3ad-086b-4b16-9366-0491fb5b39d2")
+		)
+		(pin "3"
+			(uuid "0e335fce-1c98-4bf1-bcc0-cfc6d91800d2")
+		)
+		(instances
+			(project ""
+				(path "/788dc6bb-2b47-4703-aad3-bc9b8cbddc73"
+					(reference "U7")
 					(unit 1)
 				)
 			)
@@ -7188,6 +7116,81 @@
 		)
 	)
 	(symbol
+		(lib_id "NEO_8M-symbol:GPS_NEO-8M")
+		(at 46.99 114.3 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a5a1ac7c-3b07-4ee4-b7da-18847f943c6b")
+		(property "Reference" "U6"
+			(at 42.672 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "NEO-8M"
+			(at 47.244 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "NEO-8M:GPS NEO-8M"
+			(at 44.45 111.506 0)
+			(effects
+				(font
+					(size 0.762 0.762)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 46.99 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 46.99 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "efc99459-d3db-4d1f-b484-de138c8ed2d6")
+		)
+		(pin "2"
+			(uuid "a97bafe4-b120-40d4-858b-4fa7e8aafc81")
+		)
+		(pin "4"
+			(uuid "e3260737-9cf4-45d1-99f9-ae13283cdba7")
+		)
+		(pin "3"
+			(uuid "ed9a46b5-87b5-4815-8c34-27d013cb04e3")
+		)
+		(instances
+			(project ""
+				(path "/788dc6bb-2b47-4703-aad3-bc9b8cbddc73"
+					(reference "U6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 138.43 36.83 0)
 		(unit 1)
@@ -7215,7 +7218,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 136.652 36.83 90)
 			(effects
 				(font
@@ -7285,7 +7288,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 79.502 57.15 90)
 			(effects
 				(font
@@ -7355,7 +7358,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 79.502 36.83 90)
 			(effects
 				(font
@@ -7392,84 +7395,6 @@
 			(project "astrotracker"
 				(path "/788dc6bb-2b47-4703-aad3-bc9b8cbddc73"
 					(reference "R3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "QMC5883L:QMC5883L")
-		(at 46.99 90.17 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "d00c4b78-b884-45fa-abc0-d65eef88e14e")
-		(property "Reference" "QMC5883L_COMPASS1"
-			(at 46.99 79.502 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "~"
-			(at 58.42 91.44 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 46.99 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 46.99 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 46.99 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin ""
-			(uuid "cef38e15-9e89-4d0d-bf18-c53b05bf5de5")
-		)
-		(pin ""
-			(uuid "5cff3a5f-7a2b-4904-9c65-e46fff522036")
-		)
-		(pin ""
-			(uuid "37ee2497-1598-44d8-8e30-1eec97208038")
-		)
-		(pin ""
-			(uuid "20b8315c-5592-45fc-a1df-ad408c309f9d")
-		)
-		(pin ""
-			(uuid "0555add6-30b0-4d91-8020-ec7087be316e")
-		)
-		(instances
-			(project ""
-				(path "/788dc6bb-2b47-4703-aad3-bc9b8cbddc73"
-					(reference "QMC5883L_COMPASS1")
 					(unit 1)
 				)
 			)
@@ -7542,6 +7467,84 @@
 		)
 	)
 	(symbol
+		(lib_id "QMC5883L:QMC5883L")
+		(at 46.99 90.17 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "dab9f377-d847-49c4-aaf7-2e7d3deb817c")
+		(property "Reference" "U5"
+			(at 47.244 81.026 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "QMC5883L_COMPASS"
+			(at 43.942 80.772 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "QMC5883L:QMC5883L"
+			(at 46.99 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 46.99 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 46.99 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "1a24151b-77c9-41a2-bebf-42239477b91b")
+		)
+		(pin "3"
+			(uuid "650b1e65-a5de-47d4-a6c1-b708c02426ac")
+		)
+		(pin "1"
+			(uuid "fa8ee0cf-104a-4766-828c-294c387a6001")
+		)
+		(pin "4"
+			(uuid "86486576-d0df-4f15-912b-c1775a1cc2fe")
+		)
+		(pin "5"
+			(uuid "33b30518-21e6-4f42-94be-a0b9a2fa1d13")
+		)
+		(instances
+			(project ""
+				(path "/788dc6bb-2b47-4703-aad3-bc9b8cbddc73"
+					(reference "U5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 138.43 57.15 0)
 		(unit 1)
@@ -7569,7 +7572,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 136.652 57.15 90)
 			(effects
 				(font
@@ -7639,7 +7642,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 107.442 57.15 90)
 			(effects
 				(font
@@ -7682,7 +7685,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_Push_Open_Dual")
+		(lib_id "Switch:SW_Push")
 		(at 143.51 48.26 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7692,22 +7695,22 @@
 		(fields_autoplaced yes)
 		(uuid "f05a5805-c638-4b91-ab0b-52a34c8079f5")
 		(property "Reference" "SW6"
-			(at 143.51 41.91 0)
+			(at 143.51 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "SW_Push_Open_Dual"
-			(at 143.51 44.45 0)
+		(property "Value" "SW_Push"
+			(at 143.51 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
 			(at 143.51 43.18 0)
 			(effects
 				(font
@@ -7725,7 +7728,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Push button switch, normally closed, generic, four pins"
+		(property "Description" "Push button switch, generic, two pins"
 			(at 143.51 48.26 0)
 			(effects
 				(font
@@ -7737,14 +7740,8 @@
 		(pin "2"
 			(uuid "4a96d6e9-1611-43bc-9b6a-bf7fe5f06b5c")
 		)
-		(pin "4"
-			(uuid "af202136-d011-4ae2-bede-9fff502bb026")
-		)
 		(pin "1"
 			(uuid "f78ad80e-19cf-4367-9800-2fdbb8220890")
-		)
-		(pin "3"
-			(uuid "fec25ec4-2c1d-4fe0-bc7f-3ab72e915b1a")
 		)
 		(instances
 			(project "astrotracker"
@@ -7756,7 +7753,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_Push_Open_Dual")
+		(lib_id "Switch:SW_Push")
 		(at 86.36 27.94 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7766,22 +7763,22 @@
 		(fields_autoplaced yes)
 		(uuid "fa76f685-51d4-421d-80f0-19d63ef0745c")
 		(property "Reference" "SW1"
-			(at 86.36 21.59 0)
+			(at 86.36 20.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "SW_Push_Open_Dual"
-			(at 86.36 24.13 0)
+		(property "Value" "SW_Push"
+			(at 86.36 22.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
 			(at 86.36 22.86 0)
 			(effects
 				(font
@@ -7799,7 +7796,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Push button switch, normally closed, generic, four pins"
+		(property "Description" "Push button switch, generic, two pins"
 			(at 86.36 27.94 0)
 			(effects
 				(font
@@ -7811,14 +7808,8 @@
 		(pin "2"
 			(uuid "7f7d8c67-a72b-4486-a1b4-ea685dc8204e")
 		)
-		(pin "4"
-			(uuid "3597efb1-2a86-4409-9c63-076cd85206a0")
-		)
 		(pin "1"
 			(uuid "25aa3f88-6536-4838-b71f-58b45a4d234c")
-		)
-		(pin "3"
-			(uuid "8c8db352-73df-47dd-a3ea-ae245294afcf")
 		)
 		(instances
 			(project ""
