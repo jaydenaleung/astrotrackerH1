@@ -133,9 +133,9 @@ To be honest, I thought routing the board would be a pain because of the immense
 It wasn't without some effort, however. I had to fix a few things on the schematic that the DRC picked up (pin numbers, annotations, file changes, etc.), as well as place the footprints in the right place. I spent a good amount of time trying to figure out how to put certain footprints on the back, only to find out you just have to press 'F'. I wanted to place them on the back so I could have the LCD screen and buttons in the front and all the microcontrollers/logic/drivers/etc. out of the way. It did come with the nice benefit of being able to place the footprints on top of each other to save space (given that the through-holes don't touch). After adjusting the Edge.cuts rectangle to extend 3mm from the outmost point on each side, I began routing.
 
 Here's my finished PCB layout, before routing:
-PICTURE
+![Screenshot 2025-06-25 173033](https://github.com/user-attachments/assets/6a747a96-abc6-4dfd-9afe-a4c262a5b6fc)
 
 And after:
-PICTURE
+![Screenshot 2025-06-25 180735](https://github.com/user-attachments/assets/f095ae40-9e24-44e3-8d89-407dbf3ab61c)
 
 **Total time spent: 3.5hr**
