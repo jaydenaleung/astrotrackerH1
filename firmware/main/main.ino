@@ -412,7 +412,7 @@ void latitudeAlign() { // AOE motor - 9600 microsteps per second = 18 degrees pe
   delay((int)round(duration));
   aoeSD.moveAtVelocity(STOP_VELOCITY); // stop
 
-  aoeSD.disable()
+  aoeSD.disable();
 }
 
 void azimuthalAlign() { // swivel motor - 480 microsteps per second = 54 degrees per second
@@ -431,6 +431,6 @@ void azimuthalAlign() { // swivel motor - 480 microsteps per second = 54 degrees
   delay((int)round(duration));
   swvSD.moveAtVelocity(STOP_VELOCITY); // stop
 
-  swvSD.disable()
+  swvSD.disable();
   secsLeft = 0; // reset after alignment is finished
 }
