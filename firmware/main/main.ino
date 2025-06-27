@@ -2,25 +2,45 @@
 // Made by Jayden Leung (Hack Club Slack: @loliipoppi)
 // https://github.com/jaydenaleung/astrotrackerH1
 
+// Disclaimer: I used some of the code from various tutorial websites and library examples around the internet. This was mainly just general code such as
+// starting the serial, defining library class objects, etc. that is generally required to use the library anyway. The only significant portion of code that
+// was not mine is under the calibrateCompass() function which comes installed with the QMC5883LCompass Arduino library.
+
+//////////////////////////////////////////////////////////////////
 
 // here include libraries
-#include <TMC2209.h>
+#include <Wire.h> // comes preinstalled on ESP32's Arduino core
+#include <HardwareSerial.h> // comes preinstalled on ESP32's Arduino core
+#include <LiquidCrystal_I2C.h> // LiquidCrystal I2C library by Frank de Brabander
+#include <TinyGPSPlus.h> // TinyGPSPlus library by Mikal Hart
+#include<QMC5883LCompass.h> // QMC5883LCompass library by MPrograms
+#include <TMC2209.h> // TMC2209 library by Peter Polidoro
 
-// here initialize stepper driver and set up library
+// set serial baud rate
+const long SERIAL_BAUD_RATE = 115200;
+const long MOTOR_BAUD_RATE = 115200;
+const long GPS_BAUD_RATE = 9600;
+
+// here initialize objects and set up libraries
 TMC2209 raSD; // ra = rotational axis, SD for the stepper driver, this is for the RA stepper motor 
 const TMC2209::SerialAddress SERIAL_ADDRESS_RA = TMC2209::SERIAL_ADDRESS_RA;
 TMC2209 aoeSD; // aoe = angle of elevation, SD for the stepper driver, this is for the AOE stepper motor
 const TMC2209::SerialAddress SERIAL_ADDRESS_AOE = TMC2209::SERIAL_ADDRESS_AOE;
 TMC2209 swvSD; // swv = swivel plate, SD for the stepper driver, this is for the swivel plate stepper motor
 const TMC2209::SerialAddress SERIAL_ADDRESS_SWV = TMC2209::SERIAL_ADDRESS_SWV;
-const long SERIAL_BAUD_RATE = 115200;
+HardwareSerial & serial_stream = Serial1;
 
 const stepper_motor motors[] = [raSD, aoeSD, swvSD];
 
-HardwareSerial & serial_stream = Serial1;
+LiquidCrystal_I2C lcd(0x27, 16, 2); // confirm I2C address later
+TinyGPSPlus gps;
+HardwareSerial gpsSerial(2);
+QMC5883LCompass compass;
 
 // here define pins
 #define UART_PIN 17 // UART connection pin, with PDN connected as well
+#define GPS_RX_PIN 16
+#define GPS_TX_PIN 17
 
 // Rotational axis (RA) motor
 #define RA_EN_PIN 19
@@ -50,6 +70,11 @@ bool aligning = false;
 
 double latReading; // reading from GPS
 double azReading; // reading from magnometer
+char hemisphere = 'N'; // default northern hemisphere
+
+int secsLeft = 0; // default 0 seconds left for aligning
+String formattedSecsLeft; // formatted into dd:hh:mm:ss
+int secsCounter = 0; // seconds elapsed for tracking
 
 const int32_t STOP_VELOCITY = 0; // defined once
 
@@ -57,7 +82,6 @@ const int32_t RA_RUN_VELOCITY = 2; // sidereal alignment (star tracking) at 0.00
 const int RA_MSTP = 64; // microstepping 1/64
 const uint8_t RA_RUN_CURRENT_PERCENT = 50;
 double raAngle; // RA angle of the mechanism
-bool NORTH_HEM = true;
 
 const int32_t AOE_RUN_VELOCITY = 9600; // latitudinal alignment at 18 deg/s (deg/s should be a multiple of 9) with 1/16 microstepping. NEMA 17 moves at 200 steps/rev = 3200 microsteps/rev. 60:1 worm gear reduction, 3200 microsteps = 1 rev of the worm gear = 1/60 rev of plate gear = 6 deg of latitude change; 18 deg latitude change = 9600 microsteps. 18 deg/s = 9600 microsteps/s
 const int AOE_MSTP = 16;
@@ -69,13 +93,27 @@ const int SWV_MSTP = 16;
 const uint8_t SWV_RUN_CURRENT_PERCENT = 50;
 double azAngle; // azithumal positioning (heading) of mechanism
 
-void setup() {
-  // stepper motor setup
-  raSD.setup(Serial1, SERIAL_BAUD_RATE, SERIAL_ADDRESS_RA);
-  aoeSD.setup(Serial1, SERIAL_BAUD_RATE, SERIAL_ADDRESS_AOE);
-  swvSD.setup(Serial1, SERIAL_BAUD_RATE, SERIAL_ADDRESS_SWV);
+// create custom characters for LCD
+byte up[] = { B00100, B01110, B10101, B00100, B00100, B00100, B00100, B00100 };
+byte down[] = { B00100, B00100, B00100, B00100, B00100, B10101, B01110, B00100 };
+byte left[] = { B00000, B00000, B00100, B01000, B11111, B01000, B00100, B00000 };
+byte right[] = { B00000, B00000, B00100, B00010, B11111, B00010, B00100, B00000 }
+byte hemL[] = { B00111, B01000, B10000, B11000, B10111, B10000, B01000, B00111 };
+byte hemR[] = { B10000, B01000, B00100, B01100, B10100, B00100, B01000, B10000 };
+byte lat[] = { B00000, B00100, B01110, B10101, B10101, B10101, B01110, B00100 };
+byte az[] = { B10000, B01000, B00100, B00100, B01110, B01010, B10001, B10001 };
 
-  raSD.setHardwareEnablePin(RA_EN_PIN);
+void setup() {
+  // begin serial
+  Wire.begin(); // just in case Arduino code to ESP32 needs this
+  Serial.begin(SERIAL_BAUD_RATE);
+  gpsSerial.begin(GPS_BAUD_RATE, SERIAL_8N1, GPS_RX_PIN, GPS_TX_PIN);
+  
+  // stepper motor setup
+  raSD.setup(Serial1, MOTOR_BAUD_RATE, SERIAL_ADDRESS_RA);
+  aoeSD.setup(Serial1, MOTOR_BAUD_RATE, SERIAL_ADDRESS_AOE);
+  swvSD.setup(Serial1, MOTOR_BAUD_RATE, SERIAL_ADDRESS_SWV);
+
   raSD.setRunCurrent(RUN_CURRENT_PERCENT);
   raSD.enableCoolStep();
   raSD.setMicrostepsPerStep(RA_MSTP);
@@ -119,7 +157,117 @@ void setup() {
   latAngle = 25; // else the polar scope will bump into the base plate
   azAngle = 0;
 
-  Serial.begin(SERIAL_BAUD_RATE);
+  // get position on startup
+  getPosition();
+  hemisphere = determineHemisphere();
+
+  // initialize modules
+  lcd.init();
+  lcd.backlight();
+
+  lcd.createChar(0, up);
+  lcd.createChar(1, down);
+  lcd.createChar(2, left);
+  lcd.createChar(3, right);
+  lcd.createChar(4, hemL);
+  lcd.createChar(5, hemR);
+  lcd.createChar(6, lat);
+  lcd.createChar(7, az);
+
+  // default message
+  home();
+  
+  compass.init();
+  calibrateCompass();
+  /* compass.setCalibration(); SET THIS FUNCTION AFTER CALIBRATION */
+}
+
+char determineHemisphere() {
+  if (latReading > 0) {
+    return 'N';
+  } else if (latReading < 0) {
+    return 'S';
+  } else {
+    return 'E'; // equator
+  }
+}
+
+// LCD screens/messages
+void home() {
+  lcd.setCursor(0,0); // return cursor to top left corner on startup
+  lcd.print("READY FOR");
+  lcd.setCursor(13,0);
+  lcd.write((byte)4);
+  lcd.setCursor(14,0);
+  lcd.write((byte)5);
+  lcd.setCursor(15,0);
+  lcd.print("N");
+  lcd.setCursor(0,1);
+  lcd.print("ALIGNMENT");
+}
+
+void align() {
+  lcd.setCursor(0,0);
+  lcd.print("ALIGNING");
+  lcd.setCursor(9,0);
+  lcd.write((byte)6);
+  lcd.setCursor(10,0);
+  lcd.print(latReading >= 10.0 ? round(latReading*10.0)/10.0 : round(latReading*100.0)/100.0); // round to 1 decimal place if the latitude is >= to 10, 2 if not. e.g. 42.3, 9.87. i.e. 3 sig figs.
+  lcd.setCursor(14,0);
+  lcd.write((byte)7);
+  lcd.setCursor(15,0);
+  lcd.write(hemisphere);
+  lcd.setCursor(0,1);
+  lcd.print(secsLeft);
+  lcd.setCursor(0,3);
+  lcd.print("secs left...");
+}
+
+void alignComplete() {
+  lcd.setCursor(0,0);
+  lcd.print("ALIGN COMPLETE");
+  delay(1000);
+}
+
+void up() {
+  if (aligning == false && trackingState == false) {
+    lcd.setCursor(15,1);
+    lcd.write((byte)0);
+  }
+}
+
+void down() {
+  if (aligning == false && trackingState == false) {
+    lcd.setCursor(15,1);
+    lcd.write((byte)1);
+  }
+}
+
+void left() {
+  if (aligning == false && trackingState == false) {
+    lcd.setCursor(15,1);
+    lcd.write((byte)2);
+  }
+}
+
+void right() {
+  if (aligning == false && trackingState == false) {
+    lcd.setCursor(15,1);
+    lcd.write((byte)3);
+  }
+}
+
+void track() {
+  lcd.setCursor(0,0);
+  lcd.print("TRACKING...");
+  lcd.setCursor(0,1);
+  lcd.print(formattedSecsLeft);
+}
+
+void trackStopped() {
+  lcd.setCursor(0,0);
+  lcd.print("STOPPED");
+  delay(1000);
 }
 
 void loop() {
@@ -128,27 +276,36 @@ void loop() {
   digitalWrite(AOE_DIR_PIN, LOW);
   digitalWrite(SWV_DIR_PIN, LOW);
   
-  if (NORTH_HEM) {
+  if (hemisphere == 'N' || hemisphere == 'E') {
     raSD.enableInverseMotorDirection(); // counterclockwise - rotate this way for tracking in Northern Hemisphere
   } else {
     raSD.disableInverseMotorDirection(); // clockwise - Southern Hemisphere
   }
 
+  getPosition();
+
   // button logic
   if (digitalRead(START_PIN) == LOW && trackingState == false) { // button pressed to start
     trackingState = true;
+    track(); // update LCD
     trackingStart();
   }
 
   if (digitalRead(STOP_PIN) == LOW && trackingState == true) { // button pressed to start
-    trackingState = false;
     trackingStop();
+    trackStopped(); // update LCD
+    trackingState = false;
   }
 
   if (digitalRead(ALIGN_PIN) == LOW && aligning == false) {
     aligning = true;
-    latitudeAlign(latReading); // get latReading from the GPS = your goal latitude
-    azithumalAlign();
+    secsLeft = round(((latReading / 18) * 1000) + ((azAngle / 54) * 1000)); // calculate remaining seconds
+    align(); // update LCD
+    latitudeAlign(); // align latitudinally
+    secsLeft = round((azAngle / 54) * 1000); // calculate remaining seconds - latiudinal alignment seconds
+    align(); // update LCD
+    azithumalAlign(); // align azithumally
+    alignComplete(); // update LCD
     aligning = false;
   }
 
@@ -189,6 +346,48 @@ void loop() {
   }
 }
 
+void calibrateCompass() { // DISCLAIMER: THIS CODE SECTION IS NOT MINE. I TOOK IT FROM THE GIVEN "EXAMPLES" SECTION OF THE ARDUINO LIBRARY I USED (QMC5883LCompass.h library by MPrograms). I TAKE NO CREDIT FOR THE CODE WITHIN THIS FUNCTION.
+  Serial.println("This will provide calibration settings for your QMC5883L chip. When prompted, move the magnetometer in all directions until the calibration is complete.");
+  Serial.println("Calibration will begin in 5 seconds.");
+  delay(5000);
+
+  Serial.println("CALIBRATING. Keep moving your sensor...");
+  compass.calibrate();
+
+  Serial.println("DONE. Copy the lines below and paste it into your projects sketch.);");
+  Serial.println();
+  Serial.print("compass.setCalibrationOffsets(");
+  Serial.print(compass.getCalibrationOffset(0));
+  Serial.print(", ");
+  Serial.print(compass.getCalibrationOffset(1));
+  Serial.print(", ");
+  Serial.print(compass.getCalibrationOffset(2));
+  Serial.println(");");
+  Serial.print("compass.setCalibrationScales(");
+  Serial.print(compass.getCalibrationScale(0));
+  Serial.print(", ");
+  Serial.print(compass.getCalibrationScale(1));
+  Serial.print(", ");
+  Serial.print(compass.getCalibrationScale(2));
+  Serial.println(");");
+}
+
+void getPosition() { // setup the GPS and magnometer
+  // get latitude from GPS
+  while (gpsSerial.available() > 0) {
+    char gpsData = gpsSerial.read(); // get raw data
+    Serial.println(gpsData);
+    gps.encode(gpsSerial.read()); // encode into readable format
+  }
+  if (gps.location.isUpdated()) {
+    latReading = gps.location.lat(); // get latitude
+  }
+
+  // get heading from magnometer
+  compass.read(); // get compass data
+  azReading = compass.getAzimuth(); // take the heading data from the compass and assign it to azReading
+}
+
 void trackingStart() { // RA motor
   raSD.enable();
   raSD.moveAtVelocity(RA_RUN_VELOCITY);
@@ -199,18 +398,18 @@ void trackingStop() { // RA motor
   raSD.disable();
 }
 
-void latitudeAlign(double angle) { // AOE motor - 9600 microsteps per second = 18 degrees per second (60:1 worm gear reduction)
+void latitudeAlign() { // AOE motor - 9600 microsteps per second = 18 degrees per second (60:1 worm gear reduction)
   aoeSD.enable();
   
-  if (angle > latAngle) { // 'angle' is the goal latitude
+  if (latReading > latAngle) { // 'angle' is the goal latitude
     aoeSD.enableInverseMotorDirection(); // counterclockwise - turning the worm gear this way increases the latitudinal angle
   } else {
     aoeSD.disableInverseMotorDirection() // clockwise - turning the worm gear this way decreases the latitudinal angle
   }
   
-  const int duration = (angle / 18) * 1000; // in milliseconds
+  const int duration = (latReading / 18) * 1000; // in milliseconds
   aoeSD.moveAtVelocity(AOE_RUN_VELOCITY);
-  delay(duration);
+  delay((int)round(duration));
   aoeSD.moveAtVelocity(STOP_VELOCITY); // stop
 
   aoeSD.disable()
@@ -229,8 +428,9 @@ void azimuthalAlign() { // swivel motor - 480 microsteps per second = 54 degrees
   }
   
   swvSD.moveAtVelocity(SWV_RUN_VELOCITY);
-  delay(duration);
+  delay((int)round(duration));
   swvSD.moveAtVelocity(STOP_VELOCITY); // stop
 
   swvSD.disable()
+  secsLeft = 0; // reset after alignment is finished
 }
