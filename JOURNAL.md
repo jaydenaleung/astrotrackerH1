@@ -140,5 +140,25 @@ And after:
 
 **Total time spent: 3.5hr**
 
-June 25, spent 1.5 hours on code
-June 26, spent 2 hours on code
+
+# June 25-27: Coding the Firmware
+
+After finishing my PCB on June 25th, I moved on to the software piece. I really had no idea what to expect from this phase since I've had relatively little experience programming hardware. Funny enough, although I had a bunch of components and functionalities as well as almost 500 lines of code, it took me the least amount of time compared to the other areas of this project.
+
+I coded for the ESP32 in the Arduino IDE. I started with the stepper motor drivers, which I had to consult various website tutorials, official library code on Github, and ChatGPT. I quickly realized the learning curve, but thankfully it didn't take me long to understand the code I needed to write. After really being able to understand and engage with the software, I started to really enjoy the experience! I learned a lot about I2C serial buses, UART communications, and firmware coding. After the stepper drivers, I moved onto the more software-like piece (as opposed to firmware coding) where I programmed the logic for manually adjusting the tilt and azimuth of the mechanism using a set of four up-down-left right buttons. I also implemented another button for auto-North Pole alignment by matching the tilt of the mechanism to my GPS latitude and turning the mechanism to face north (see GPS and compass modules in the next-next sentence). Two more buttons were used for starting and stopping tracking. Then, I moved onto the NEO-8M (GPS) and QMC5883L (compass) modules, which were relatively simple to extract data from to use. Finally - and arguably the most time-consuming and problem solving-intense part - I programmed the UI through an I2C serial bus LCD interface. I had a few screens, which were:
+- Home screen: "READY FOR ALIGNMENT"
+- Auto-alignment: "ALIGNING + Latitude + Heading / x secs left…"
+- Auto-alignment complete: "ALIGN COMPLETE (for 1s)"
+- Tracking on: "TRACKING… / x hours x minutes x seconds"
+- Tracking off: "STOPPED (for 1s)"
+- Manual alignment: Shows custom arrows on the home screen to indicate direction
+- Other custom markings/logos for azimuth, latitude, which hemisphere the device is in, etc.
+
+In the process of doing so, I had to implement a few complex features such as tracking elapsed time, saving to non-volatile memory, etc. It was a fun excercise that increased my coding skills!
+
+Examples of my code:
+![Screenshot 2025-06-28 at 12 08 58 AM](https://github.com/user-attachments/assets/43771c23-2b89-486b-8513-90dcd8efb5ba)
+![Screenshot 2025-06-28 at 12 08 26 AM](https://github.com/user-attachments/assets/2e7bc9b8-4855-415d-a494-d77490b46d26)
+![Screenshot 2025-06-28 at 12 09 18 AM](https://github.com/user-attachments/assets/0df3d688-a1da-40b0-a591-714637547193)
+
+**Total time spent: 9hr**
