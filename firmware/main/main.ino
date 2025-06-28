@@ -11,10 +11,14 @@
 // here include libraries
 #include <Wire.h> // comes preinstalled on ESP32's Arduino core
 #include <HardwareSerial.h> // comes preinstalled on ESP32's Arduino core
+#include <Preferences.h> // comes preinstalled on ESP32's Arduino core
 #include <LiquidCrystal_I2C.h> // LiquidCrystal I2C library by Frank de Brabander
 #include <TinyGPSPlus.h> // TinyGPSPlus library by Mikal Hart
 #include<QMC5883LCompass.h> // QMC5883LCompass library by MPrograms
 #include <TMC2209.h> // TMC2209 library by Peter Polidoro
+
+// initialize preferences
+Preferences prefs;
 
 // set serial baud rate
 const long SERIAL_BAUD_RATE = 115200;
@@ -73,15 +77,16 @@ double azReading; // reading from magnometer
 char hemisphere = 'N'; // default northern hemisphere
 
 int secsLeft = 0; // default 0 seconds left for aligning
-String formattedSecsLeft; // formatted into dd:hh:mm:ss
-int secsCounter = 0; // seconds elapsed for tracking
+double upButtonTime; // counts for how many seconds the up button was held down through watching millis()
+double downButtonTime; // same but with down button
+double startTime; // counted in milliseconds thru millis() at the start of tracking, to counter the time elapsed since tracking started
+String formattedSecsCounter = "0h 0m 0.0s"; // formatted into hh:mm:ss.ms
 
 const int32_t STOP_VELOCITY = 0; // defined once
 
 const int32_t RA_RUN_VELOCITY = 2; // sidereal alignment (star tracking) at 0.00417807462 deg/s (~15 arcseconds/s) with 1/64 microstepping. NEMA 17 moves at 200 steps/rev = 12800 microsteps/rev. 12.5:1 belt drive gear reduction, 12800 microsteps = 1 rev of the smaller gear = 1/12.5 rev of the bigger gear (we want this to move) = 28.8 deg of the bigger gear; 0.00014507 microsteps = 28.8 deg; 1.8569201964 microsteps/s = 0.00417807462 deg/s. Round to 2 microsteps/s with ~7.7% error.
 const int RA_MSTP = 64; // microstepping 1/64
 const uint8_t RA_RUN_CURRENT_PERCENT = 50;
-double raAngle; // RA angle of the mechanism
 
 const int32_t AOE_RUN_VELOCITY = 9600; // latitudinal alignment at 18 deg/s (deg/s should be a multiple of 9) with 1/16 microstepping. NEMA 17 moves at 200 steps/rev = 3200 microsteps/rev. 60:1 worm gear reduction, 3200 microsteps = 1 rev of the worm gear = 1/60 rev of plate gear = 6 deg of latitude change; 18 deg latitude change = 9600 microsteps. 18 deg/s = 9600 microsteps/s
 const int AOE_MSTP = 16;
@@ -152,14 +157,15 @@ void setup() {
   pinMode(LEFT_PIN, INPUT_PULLUP);
   pinMode(RIGHT_PIN, INPUT_PULLUP);
 
-  // reset values when starting up
-  raAngle = 0;
-  latAngle = 25; // else the polar scope will bump into the base plate
-  azAngle = 0;
-
   // get position on startup
   getPosition();
   hemisphere = determineHemisphere();
+
+  // reset values when starting up
+  prefs.begin("angles", true); // open the "angles" namespace
+  latAngle = prefs.getDouble("latitude", 25.0); // retrieve the physical mechanism latitude tilt that was saved the previous time using it, default to 25.0 degrees (else the polar scope will bump into the base plate)
+  prefs.end();
+  azAngle = azReading;
 
   // initialize modules
   lcd.init();
@@ -194,6 +200,7 @@ char determineHemisphere() {
 
 // LCD screens/messages
 void home() {
+  lcd.clear();
   lcd.setCursor(0,0); // return cursor to top left corner on startup
   lcd.print("READY FOR");
   lcd.setCursor(13,0);
@@ -207,6 +214,7 @@ void home() {
 }
 
 void align() {
+  lcd.clear();
   lcd.setCursor(0,0);
   lcd.print("ALIGNING");
   lcd.setCursor(9,0);
@@ -224,6 +232,7 @@ void align() {
 }
 
 void alignComplete() {
+  lcd.clear();
   lcd.setCursor(0,0);
   lcd.print("ALIGN COMPLETE");
   delay(1000);
@@ -258,13 +267,20 @@ void right() {
 }
 
 void track() {
+  lcd.clear();
   lcd.setCursor(0,0);
   lcd.print("TRACKING...");
   lcd.setCursor(0,1);
-  lcd.print(formattedSecsLeft);
+  lcd.print(formattedSecsCounter);
+}
+
+void count() {
+  lcd.setCursor(0,1);
+  lcd.print(formattedSecsCounter);
 }
 
 void trackStopped() {
+  lcd.clear();
   lcd.setCursor(0,0);
   lcd.print("STOPPED");
   delay(1000);
@@ -287,8 +303,14 @@ void loop() {
   // button logic
   if (digitalRead(START_PIN) == LOW && trackingState == false) { // button pressed to start
     trackingState = true;
+    startTime = (double)(millis()); // must convert millis() to double because it returns as an unsigned long (integer)
     track(); // update LCD
     trackingStart();
+  }
+
+  if (trackingState == true && digitalRead(START_PIN) == HIGH && digitalRead(STOP_PIN) == HIGH) { // during tracking
+    formattedSecsCounter = updateCount();
+    count();
   }
 
   if (digitalRead(STOP_PIN) == LOW && trackingState == true) { // button pressed to start
@@ -316,6 +338,11 @@ void loop() {
     aoeSD.moveAtVelocity(AOE_RUN_VELOCITY);
   } else {
     aoeSD.disable();
+    latAngle += ((double)(millis()) - upButtonTime) * 18; // get the time that the button was pressed for and convert it to degrees
+    saveMechLat();
+  }
+  if (digitalRead(UP_PIN) == HIGH) { // crucial that this code is after and seperate from the else block, so that upButtonTime doesn't reset before it updates latAngle
+    upButtonTime = (double)(millis());
   }
 
   if (digitalRead(DOWN_PIN) == LOW) {
@@ -325,6 +352,11 @@ void loop() {
     aoeSD.moveAtVelocity(AOE_RUN_VELOCITY);
   } else {
     aoeSD.disable();
+    latAngle -= ((double)(millis()) - downButtonTime) * 18;
+    saveMechLat();
+  }
+  if (digitalRead(DOWN_PIN) == HIGH) {
+    downButtonTime = (double)(millis());
   }
 
   if (digitalRead(LEFT_PIN) == LOW) {
@@ -344,6 +376,12 @@ void loop() {
   } else {
     swvSD.disable();
   }
+}
+
+void saveMechLat() {
+  prefs.begin("angles", false); // open a namespace in the ESP32 non-volatile memory
+  prefs.putDouble("latitude", latAngle); // save the latAngle in long-term memory
+  prefs.end();
 }
 
 void calibrateCompass() { // DISCLAIMER: THIS CODE SECTION IS NOT MINE. I TOOK IT FROM THE GIVEN "EXAMPLES" SECTION OF THE ARDUINO LIBRARY I USED (QMC5883LCompass.h library by MPrograms). I TAKE NO CREDIT FOR THE CODE WITHIN THIS FUNCTION.
@@ -388,6 +426,26 @@ void getPosition() { // setup the GPS and magnometer
   azReading = compass.getAzimuth(); // take the heading data from the compass and assign it to azReading
 }
 
+String updateCount() {
+  double milsec = (double)(millis()) - startTime;;
+  double seconds = milsec / 1000.0; // convert forward all the way to exact number of hours
+  milsec = 0;
+  double minutes = seconds / 60.0;
+  seconds = 0;
+  double hours = minutes / 60.0;
+  minutes = 0;
+  
+  minutes = (hours-(double)((int)hours)) * 60.0; // convert exact number of hours into readable hh:mm:ss.ms format
+  hours = (int)hours; // correct the hours by only displaying the remainder after 24 hours has been converted into and shown as a day
+  seconds = (minutes-(double)((int)minutes)) * 60.0; // now truncate the decimals from days since that remainder time has been transferred to hours 
+  minutes = (int)minutes; // does this by truncating the higher order unit (e.g. days is higher than hours) and subtracting it from the original to get the decimal point
+  milsec = (seconds-(double)((int)seconds)) * 1000.0; // then it takes that and multiplies it by its respective conversion factor to get to a lower order unit (e.g. hours to minutes)
+  seconds = (int)seconds; // keeps it as a double for precision before converting it to a more readable int and String later
+  milsec = (int)milsec; // truncate the milliseconds too to make it readable and to fix any accidental decimals that show up in conversion
+
+  return (String)hours + "h " + (String)minutes + "m " + (String)seconds + "." + (String)milsec + "s" // max characters is 16, OK unless hour count goes over 100 (unrealistic)
+}
+
 void trackingStart() { // RA motor
   raSD.enable();
   raSD.moveAtVelocity(RA_RUN_VELOCITY);
@@ -411,6 +469,9 @@ void latitudeAlign() { // AOE motor - 9600 microsteps per second = 18 degrees pe
   aoeSD.moveAtVelocity(AOE_RUN_VELOCITY);
   delay((int)round(duration));
   aoeSD.moveAtVelocity(STOP_VELOCITY); // stop
+  
+  latAngle = latReading;
+  saveMechLat();
 
   aoeSD.disable();
 }
