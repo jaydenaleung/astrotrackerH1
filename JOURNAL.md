@@ -6,12 +6,12 @@ created_at: "2025-06-11"
 ---
 
 ***IGNORE THIS FOR NOW, STILL IN PROGRESS (ESTIMATED PROJECT TIME: 60HRS)**
-**Total hours: **
-**Time spent on CAD: **
-**Time spent on PCB design: 11hr**
-**Time spent on coding: 9h**
-**Time spent on assembly: **
-**Time spent on sourcing parts, writing journal and readme, etc.: **
+- **Total hours: **
+- **Time spent on CAD: **
+- **Time spent on PCB design: 11hr**
+- **Time spent on coding: 9h**
+- **Time spent on assembly: **
+- **Time spent on sourcing parts, writing journal and readme, etc.: **
 
 # June 11th: Research and Planning
 
