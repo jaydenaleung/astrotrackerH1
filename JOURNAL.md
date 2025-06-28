@@ -9,6 +9,7 @@ created_at: "2025-06-11"
 **Total hours: **
 **Time spent on CAD: **
 **Time spent on PCB design: 11hr**
+**Time spent on coding: 9h**
 **Time spent on assembly: **
 **Time spent on sourcing parts, writing journal and readme, etc.: **
 
