@@ -16,18 +16,22 @@ DIY star tracker camera mount for astrophotography. Includes a 3-axis rotational
 - 1x resistor pack ($5) ([https://www.amazon.com/Resistor-Resistors-Assortment-Breadboard-Electronics/dp/B0F4P352BB](url))
 - 1x NEO-8M GPS Module ($1) ([https://www.aliexpress.us/item/3256806859439052.html](url))
 - 1x QMC5883L Compass Module ($2) ([https://www.aliexpress.us/item/3256807913730129.html](url))
-- 3x TMC2209 stepper motor driver 
-- 1x 16T 5mm bore gear
-- 1x idler bearing
-- 1x GT2 6mm belt
-- 1x polar scope
-- 2x 1/4" camera screw
-- 1x camera ball joint mount
-- 1x bubble level
-- 4x 200g counterweight
-- 1x 6S lipo battery
-- M4 nuts and bolts
-- M3 nuts and bolts
-- M2.5 nuts and bolts
-- 1x Allen key set
-- 1x long-nosed plier
+- 3x TMC2209 stepper motor driver ($1) ([https://www.aliexpress.us/item/3256808046478114.html](url))
+- 1x 16T 5mm bore gear ($7) ([https://www.amazon.com/WINSINN-Aluminum-Synchronous-Timing-Printer/dp/B077GMR328](url))
+- 1x 16T toothless idler bearing for 6mm width GT2 belt, 3mm bore ($9) ([https://www.amazon.com/WINSINN-Aluminum-Timing-Toothless-Printer/dp/B07BPHPYTN?th=1](url))
+- 1x 2-pack GT2 6mm width belt, 530mm length ($7) ([https://www.aliexpress.us/item/3256808983126633.html?gatewayAdapt=glo2usa4itemAdapt](url))
+- 1x polar scope ($27 - with 30% off coupon) ([https://www.amazon.com/Tydeux-Polar-Telescope-Finderscope-EQ-5/dp/B0D2L11C4G/](url))
+- 1x 3-pack 1/4" camera screw ($1) ([https://www.aliexpress.us/item/3256806761503223.html](url))
+- 1x camera ball joint mount, red color ($1) ([https://www.aliexpress.us/item/3256802805830814.html](url))
+- 1x 5-pack bubble level, 18x9mm ($1) ([https://www.aliexpress.us/item/3256808611329580.html](url))
+- 4x 200g counterweight ($1) ([https://www.aliexpress.us/item/3256807217165073.html](url))
+- 1x 6S LiPo battery, 22.2V 1000mAh 100C, XT60 connector ($15) ([https://www.amazon.com/Ovonic-Battery-1000mAh-Connector-CINEWHOOP/dp/B07JPK99D9](url))
+- 1x XT60 male and female plug pack wires, 14 AWG, 15cm length ($1) ([https://www.aliexpress.us/item/3256808104814371.html](url))
+- 1x LiPo battery charger ($30) ([https://www.amazon.com/B6-Battery-Charger-Discharger-Connectors/dp/B0F2H3XR6S](url))
+- 1x M4 nuts and bolts, 270 pcs ($9) ([https://www.amazon.com/Kadrick-Assortment-Metric-Washers-Upgrade/dp/B0BZ6XG8PT?th=1](url))
+- 4x M3 50pcs bolts, 6mm, 12mm, 16mm, 35mm versions ($1) ([https://www.aliexpress.us/item/2255800794906149.html](url))
+- 1x M3 50 pcs hex nuts ($1) ([https://www.aliexpress.us/item/3256807407546447.html](url))
+- 1x M2.5x30mm 50pcs bolts ($1) ([https://www.aliexpress.us/item/2255799955713291.html](url))
+- 1x M2.5 50 pcs nuts ($1) ([https://www.aliexpress.us/item/3256807407546447.html](url))
+- 1x Allen key set ($1) ([https://www.aliexpress.us/item/3256807283413035.html](url))
+- 1x long-nosed plier ($1) ([https://www.aliexpress.us/item/3256805792649837.html](url))
