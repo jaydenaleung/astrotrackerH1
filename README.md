@@ -21,6 +21,7 @@ DIY star tracker camera mount for astrophotography. Includes a 3-axis rotational
 - 1x 16T toothless idler bearing for 6mm width GT2 belt, 3mm bore ($9) ([https://www.amazon.com/WINSINN-Aluminum-Timing-Toothless-Printer/dp/B07BPHPYTN?th=1](url))
 - 1x 2-pack GT2 6mm width belt, 530mm length ($7) ([https://www.aliexpress.us/item/3256808983126633.html?gatewayAdapt=glo2usa4itemAdapt](url))
 - 1x polar scope ($27 - with 30% off coupon) ([https://www.amazon.com/Tydeux-Polar-Telescope-Finderscope-EQ-5/dp/B0D2L11C4G/](url))
+- 1x right angle viewfinder (optional - not using it for this build)
 - 1x 3-pack 1/4" camera screw ($1) ([https://www.aliexpress.us/item/3256806761503223.html](url))
 - 1x camera ball joint mount, red color ($1) ([https://www.aliexpress.us/item/3256802805830814.html](url))
 - 1x 5-pack bubble level, 18x9mm ($1) ([https://www.aliexpress.us/item/3256808611329580.html](url))
