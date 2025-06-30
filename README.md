@@ -4,8 +4,8 @@ DIY star tracker camera mount for astrophotography. Includes a 3-axis rotational
 
 **Bill of Materials (BOM):**
 *Note: I am using Aliexpress for some and Amazon for others. Prices listed below are per part and rounded. e.g. 2x Nema 17 ($14) = $28 total.*
-- 2x Nema 17 (regular) ($14) ([https://www.amazon.com/STEPPERONLINE-Stepper-Bipolar-Connector-compatible/dp/B00PNEQKC0](url))
-- 1x Nema 17 (gearbox) ($42) ([https://www.amazon.com/51-Planetary-Gearbox-Stepper-Precision/dp/B00QEVLDVO](url))
+- 2x Nema 17 stepper motor (regular) ($14) ([https://www.amazon.com/STEPPERONLINE-Stepper-Bipolar-Connector-compatible/dp/B00PNEQKC0](url))
+- 1x Nema 17 stepper motor (w/gearbox) ($42) ([https://www.amazon.com/51-Planetary-Gearbox-Stepper-Precision/dp/B00QEVLDVO](url))
 - 1x F8-22M thrust ball bearing ($1) ([https://www.aliexpress.us/item/3256807051413217.html](url))
 - 1x 10-pack radial ball bearing, 3mm bore ($10) ([https://www.aliexpress.us/item/3256807605344885.html](url))
 - 1x worm gear set (worm + gear) ($12) ([https://www.amazon.com/uxcell-Worm-Gear-Set-Reduction/dp/B0DFCVKXLX](url))
