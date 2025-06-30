@@ -1,8 +1,16 @@
 # Astrotracker H1
 DIY star tracker camera mount for astrophotography. Includes a 3-axis rotational gimbal, automatic North Pole alignment, and possible upcoming GoTo integration.
 
+In your GitHub README.md file:
+A description of what your project is
+A couple sentences on why you made the project
+PICTURES OF YOUR PROJECT
+A screenshot of a full 3D model with your project
+A screenshot of your PCB, if you have one
+A wiring diagram, if you're doing any wiring that isn't on a PCB
+A BOM in table format at the end of the README
 
-**Bill of Materials (BOM):** *Note: I am using Aliexpress for some and Amazon for others. Prices listed below are per part and rounded. e.g. 2x Nema 17 ($14) = $28 total.*
+**Bill of Materials (BOM):** *Note: I am using Aliexpress for some and Amazon for others. Prices listed below are per part and rounded. e.g. 2x Nema 17 ($14) = $28 total. Also see the .csv file for the official BOM.*
 
 - **Total minimum cost: $220**
 - **Total including 'in-case' of price changes, spare parts, etc.: $235**
