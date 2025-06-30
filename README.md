@@ -12,10 +12,6 @@ A BOM in table format at the end of the README
 
 **Bill of Materials (BOM):** *Note: I am using Aliexpress for some and Amazon for others. Prices listed below are per part and rounded. e.g. 2x Nema 17 ($14) = $28 total. Also see the .csv file for the official BOM.*
 
-- **Total minimum cost: $220**
-- **Total including 'in-case' of price changes, spare parts, etc.: $235**
-- **Total including in-cases, sales tax (assumed ~6%), import and customs fees, etc.: $270**
-
 - 2x Nema 17 stepper motor (regular) ($14) ([https://www.amazon.com/STEPPERONLINE-Stepper-Bipolar-Connector-compatible/dp/B00PNEQKC0](url))
 - 1x Nema 17 stepper motor (w/gearbox) ($42) ([https://www.amazon.com/51-Planetary-Gearbox-Stepper-Precision/dp/B00QEVLDVO](url))
 - 1x F8-22M thrust ball bearing ($1) ([https://www.aliexpress.us/item/3256807051413217.html](url))
@@ -49,3 +45,7 @@ A BOM in table format at the end of the README
 - 1x Allen key set ($1) ([https://www.aliexpress.us/item/3256807283413035.html](url))
 - 1x long-nosed plier ($1) ([https://www.aliexpress.us/item/3256805792649837.html](url))
 - 1x soldering iron (no cost - already have it)
+
+- **Total minimum cost: $220**
+- **Total including 'in-case' of price changes, spare parts, etc.: $235**
+- **Total including in-cases, sales tax (assumed ~6%), import and customs fees, etc.: $270**
