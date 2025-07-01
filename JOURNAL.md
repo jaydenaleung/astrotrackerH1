@@ -5,6 +5,7 @@ description: "DIY star tracker for astrophotography with a 360° azimuthal axis,
 created_at: "2025-06-11"
 ---
 
+# Time Spent
 - **Total hours: 56.5h**
 - **Time spent on CAD: 27.5h**
 - **Time spent on PCB design: 11h**
