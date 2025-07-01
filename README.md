@@ -6,8 +6,11 @@ The Astrotracker H1 is a DIY star tracker camera mount for astrophotography, mad
 
 
 # Figures
+
 **Total Cost:** $ USD
+
 **Total hours spent:** hrs
+
 *See JOURNAL.md for an in-depth explanation of these numbers.*
 
 
@@ -75,14 +78,18 @@ After conducting some research, I found out that a star tracker was one of the m
 
 
 # Why This Is Worth Ten Points
-This star tracker isn't just any star tracker or equatorial mount - it adds many more complex features that empower young photographers on a budget, like myself, to pursue astrophotography. Fundamentally, the project is already as mechanically complex as a six-point project without all of the additional features. The time spent building intricate features into the mechanical model, custom footprints into the PCB, and special features into the firmware truly takes this project above and beyond the guidelines for a six-point project. Not only did I pay attention to the detail and precision needed for such a device with the bubble level, high reduction ratios, and microstepping, but I also considered what would take this above its minimum viable product by adding complex logic for auto-alignment, a balancing counterweight to increase control, and an intuitive LCD user interface controlled with standard pushbuttons. Being able to connect all the electrical components on a single, thought-out PCB and the firmware logic for tracking and auto-alignment indeed also makes this project electrically and computationally complex. Furthermore, I was able to achieve all of these features for under $300 USD when most market star trackers cost about $500 USD. Finally, I spent a ton of time perfecting every detail and feature, putting in almost sixty hours *before* building it (while the recommended minimum time spent for a ten-point project is fifty hours).
+This star tracker isn't just any star tracker or equatorial mount - it adds many more complex features that empower young photographers on a budget, like myself, to pursue astrophotography. Fundamentally, the project is already as mechanically complex as a six-point project without all of the additional features. The time spent building intricate features into the mechanical model, custom footprints into the PCB, and special features into the firmware truly takes this project above and beyond the guidelines for a six-point project. 
+
+Not only did I pay attention to the detail and precision needed for such a device with the bubble level, high reduction ratios, and microstepping, but I also considered what would take this above its minimum viable product by adding complex logic for auto-alignment, a balancing counterweight to increase control, and an intuitive LCD user interface controlled with standard pushbuttons. Being able to connect all the electrical components on a single, thought-out PCB and the firmware logic for tracking and auto-alignment indeed also makes this project electrically and computationally complex. Furthermore, I was able to achieve all of these features for under $300 USD when most market star trackers cost about $500 USD. Finally, I spent a ton of time perfecting every detail and feature, putting in almost sixty hours *before* building it (while the recommended minimum time spent for a ten-point project is fifty hours).
 
 
 # **Bill of Materials (BOM):**
 
-*Note: I am using Aliexpress for some and Amazon for others. Prices listed below are per part and rounded. e.g. 2x Nema 17 ($14) = $28 total. Also see the .csv file for the official BOM.*
+*Note: I am using Aliexpress for some and Amazon for others. Prices listed below are in USD, per part, and rounded. e.g. 2x Nema 17 ($14) = $28 total. Also see the .csv file for the official BOM.*
 
-- 2x Nema 17 stepper motor (regular) ($14) ([https://www.amazon.com/STEPPERONLINE-Stepper-Bipolar-Connector-compatible/dp/B00PNEQKC0](url))
+| Quantity | Name | Price Per Part | Link |
+| ----- | ------------ | ------ | -------------------------------------------- |
+| 2x | Nema 17 stepper motor (regular) | $14 | [https://www.amazon.com/STEPPERONLINE-Stepper-Bipolar-Connector-compatible/dp/B00PNEQKC0](url) |
 - 1x Nema 17 stepper motor (w/gearbox) ($42) ([https://www.amazon.com/51-Planetary-Gearbox-Stepper-Precision/dp/B00QEVLDVO](url))
 - 1x F8-22M thrust ball bearing ($1) ([https://www.aliexpress.us/item/3256807051413217.html](url))
 - 1x 10-pack radial ball bearing, 3mm bore ($2) ([https://www.aliexpress.us/item/3256807605344885.html](url))
@@ -99,7 +106,7 @@ This star tracker isn't just any star tracker or equatorial mount - it adds many
 - 1x 16T toothless idler bearing for 6mm width GT2 belt, 3mm bore ($9) ([https://www.amazon.com/WINSINN-Aluminum-Timing-Toothless-Printer/dp/B07BPHPYTN?th=1](url))
 - 1x 2-pack GT2 6mm width belt, 530mm length ($7) ([https://www.aliexpress.us/item/3256808983126633.html?gatewayAdapt=glo2usa4itemAdapt](url))
 - 1x polar scope ($27 - with 30% off coupon) ([https://www.amazon.com/Tydeux-Polar-Telescope-Finderscope-EQ-5/dp/B0D2L11C4G/](url))
-- 1x right angle viewfinder (optional - not using it for this build)
+- 1x right-angle viewfinder (optional - not using it for this build)
 - 1x 3-pack 1/4" camera screw ($1) ([https://www.aliexpress.us/item/3256806761503223.html](url))
 - 1x camera ball joint mount, red color ($1) ([https://www.aliexpress.us/item/3256802805830814.html](url))
 - 1x 5-pack bubble level, 18x9mm ($1) ([https://www.aliexpress.us/item/3256808611329580.html](url))
