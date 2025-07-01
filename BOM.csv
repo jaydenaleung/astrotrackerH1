@@ -30,6 +30,6 @@ Quantity,Name,Price Per Part,Link
 1x,M2.5 50 pcs nuts,$1,https://www.aliexpress.us/item/3256807407546447.html
 1x,Allen key set,$1,https://www.aliexpress.us/item/3256807283413035.html
 1x,Long-nosed plier,$1,https://www.aliexpress.us/item/3256805792649837.html
-Total minimum cost,$220
-Total including 'in-case' of price changes, spare parts, etc.,~$235
-Total including in-cases; sales tax (assumed ~6%); import and customs fees; etc.,~$270
+Total minimum cost,$220,,
+Total including 'in-case' of price changes; spare parts; etc.,~$235,,
+Total including in-cases; sales tax (assumed ~6%); import and customs fees; etc.,~$270,,
