@@ -11,6 +11,8 @@ Astrotracker H1 is a DIY star tracker camera mount for astrophotography, made to
 
 **Total Hours Spent:** 56.5 hrs
 
+**Total Days Spent: 21 days**
+
 *See JOURNAL.md and the BOM below for an in-depth explanation of these numbers.*
 
 
