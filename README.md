@@ -4,6 +4,13 @@ The Astrotracker H1 is a DIY star tracker camera mount for astrophotography, mad
 ![Screenshot 2025-06-29 143516](https://github.com/user-attachments/assets/fdabbf7d-fc66-46d1-a8b9-78f6e98e323c)
 ![Screenshot 2025-06-29 135726](https://github.com/user-attachments/assets/1529174f-2fba-47f1-aa35-8de9ad0aa9d6)
 
+
+# Figures
+**Total Cost:** $
+**Total hours spent:** hrs
+*See JOURNAL.md for an in-depth explanation of these numbers.*
+
+
 # How It Works
 
 The Three-Part Process
@@ -36,6 +43,8 @@ This device attempts to solve these issues by upgrading the traditional equatori
 
 The mechanism is based on two plates connected by a hinge and a rotating gear. The bottom plate is the swivel plate, which swivels 360° and adjusts the azimuthal heading of the device. The other plate is the rotational axis (RA) plate, which tilts to match is angle of elevation to the device's GPS latitude and is driven by a precise worm gear. Matching the device's rotation to face exactly 0° north and its tilt to its GPS latitude allows the RA, the axis perpendicular to and in the middle of the rotating gear and the RA plate, to point exactly to the North Pole (next to the star Polaris). When the RA is pointed toward the North Pole and the rotating gear turns counterclockwise, the tracking will be able to accurately and precisely follow the path of the stars and prevent capturing star trails.
 
+![Screenshot 2025-06-29 033256](https://github.com/user-attachments/assets/742cd0ea-88f7-4ca4-8f89-0a78f77b9cf3)
+
 Additional Features
 -
 
@@ -44,6 +53,7 @@ Apart from the bare-bones mechanism that drives the star tracker, these upgrades
 - Polar scope for precise adjustment
 - Counterweight for balance
 - Bubble level for precision
+- Thrust and radial ball bearings for smooth rotation
 - 12.5:1 reduction ratio for belt-driven rotating gear
 - 60:1 reduction ratio for worm gear-driven hinge
 - 51:1 reduction ratio for the gearbox on the stepper motor turning the swivel plate
@@ -51,6 +61,11 @@ Apart from the bare-bones mechanism that drives the star tracker, these upgrades
 - Standard 1/4" camera and tripod mount screws
 - Ball mount to point camera the right way
 - Center control console with up-down-left-right buttons for fine adjustment, start-stop tracking buttons, auto-adjustment capability, and a smart LCD UI interface
+
+![Screenshot 2025-06-29 033205](https://github.com/user-attachments/assets/6636d2c8-e260-416a-bd52-7c95160e74e9)
+![Screenshot 2025-06-29 033347](https://github.com/user-attachments/assets/82e41896-1b35-4667-9c97-da2e2985ecbb)
+![Screenshot 2025-06-29 033557](https://github.com/user-attachments/assets/578ddc86-da92-454e-837b-f4daa4648be4)
+
 
 # The 'Why' Behind the Project
 As an avid photographer and engineer myself, I have always wanted to get more involved with astrophotography. Unfortunately, living in a city didn't play out well for me because of the massive amount of light pollution around me, blocking my view of the stars. I knew I wanted to combine my passions, and the opportunity to do so came through Hack Club's Highway to Undercity program. They fund almost any project you propose to them through their You Ship We Ship (YSWS) initiative.
@@ -60,7 +75,14 @@ After conducting some research, I found out that a star tracker was one of the m
 In your GitHub README.md file:
 A BOM in table format at the end of the README
 
-**Bill of Materials (BOM):** *Note: I am using Aliexpress for some and Amazon for others. Prices listed below are per part and rounded. e.g. 2x Nema 17 ($14) = $28 total. Also see the .csv file for the official BOM.*
+
+# Why This Is Worth Ten Points
+This star tracker isn't just any star tracker or equatorial mount - it adds many more complex features that empower young photographers on a budget like myself in pursuing astrophotography. 
+
+
+# **Bill of Materials (BOM):**
+
+*Note: I am using Aliexpress for some and Amazon for others. Prices listed below are per part and rounded. e.g. 2x Nema 17 ($14) = $28 total. Also see the .csv file for the official BOM.*
 
 - 2x Nema 17 stepper motor (regular) ($14) ([https://www.amazon.com/STEPPERONLINE-Stepper-Bipolar-Connector-compatible/dp/B00PNEQKC0](url))
 - 1x Nema 17 stepper motor (w/gearbox) ($42) ([https://www.amazon.com/51-Planetary-Gearbox-Stepper-Precision/dp/B00QEVLDVO](url))
