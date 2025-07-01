@@ -169,6 +169,29 @@ Examples of my code:
 
 After finishing the firmware, most of the project was already finished. The only steps left were to add a housing onto the structure for the PCB in CAD, finish sourcing parts and writing my BOM, update my journal and readme, and submit! For the housing, I figured I could just export the PCB from KiCad as a STEP file and make the holes in the case using that solid part. It made it a lot easier, except that I decided to make the housing on a sloped plane, which didn't work well when I tried to align the coordinates of the PCB with my sketch (the coordinates were in the XYZ direction). I began to finish my part sourcing during this stage because I needed the dimensions of the electronic components I was using to make the housing. This was also helpful because I realized that I needed to make two more holes for my LiPo battery supply.
 
-Before submitting, I read over the submission guidelines again to make sure I had what I needed. Then, I went to write my journal (which I'm doing now!), and after this, I will write the readme and submit. Even though I still have a ways to go until the project is built and finished, I have to say that this project (50+ hours!) is one of the biggest projects I've ever built, one of the projects I'm most proud of, and definitely the project where I've learned the most. I firsthandedly experienced the learning curve at the beginning of a stage - whether it be CAD, PCB, or software - and saw how easily I could beat it if only I perservered through the beginning, explored, and put lots of time into it. In fact, my favorite outcome from this project isn't the final product but all of the skills I picked up through the way and the fun of learning so quickly. Thank you Hack Club for making this YSWS and community possible - I've been absolutely obsessed with Highway to Undercity for the past few weeks.
+Before submitting, I read over the submission guidelines again to make sure I had what I needed. Then, I went to write my journal (which I'm doing now!), and after this, I will write the readme and submit. Even though I still have a ways to go until the project is built and finished, I have to say that this project (50+ hours!) is one of the biggest projects I've ever built, one of the projects I'm most proud of, and definitely the project where I've learned the most. I first-handly experienced the learning curve at the beginning of a stage - whether it be CAD, PCB, or software - and saw how easily I could beat it if only I persevered through the beginning, explored, and put lots of time into it. In fact, my favorite outcome from this project isn't the final product but all of the skills I picked up through the way and the fun of learning so quickly. Thank you, Hack Club, for making this YSWS and community possible - I've been absolutely obsessed with Highway to Undercity for the past few weeks.
 
-The BOM can be found on the readme. Of course, some pictures of the final design (CAD and PCB):
+The BOM can be found in the readme. Of course, some pictures of the final design (CAD, PCB, and my magazine page design):
+![Astrotracker H1 Magazine](https://github.com/user-attachments/assets/d8ef337d-7465-4fb0-a75a-600d3da2bda3)
+
+![image](https://github.com/user-attachments/assets/0a49afde-ec49-477e-ba7d-6e80c2598333)
+
+![Screenshot 2025-06-29 143516](https://github.com/user-attachments/assets/bb97f868-2bd2-43ed-828a-0c9c9434387f)
+![Screenshot 2025-06-29 145517](https://github.com/user-attachments/assets/909fe59c-9607-4ace-a37b-e20816a2dd3b)
+![Screenshot 2025-06-29 135726](https://github.com/user-attachments/assets/385da61f-6a0c-4180-8ee6-ebabd43b79aa)
+![Screenshot 2025-06-29 033557](https://github.com/user-attachments/assets/ac30933d-8069-4835-ba35-f516a03119c1)
+![Screenshot 2025-06-29 033515](https://github.com/user-attachments/assets/38ef93da-db89-4f8d-b3d4-9a61b6eeee45)
+![Screenshot 2025-06-29 033445](https://github.com/user-attachments/assets/d27db634-4394-450f-8333-c2bfc52f1a1f)
+![Screenshot 2025-06-29 033621](https://github.com/user-attachments/assets/4fe4aefd-49f4-4803-8935-9a1eec814e5b)
+![Screenshot 2025-06-29 033445](https://github.com/user-attachments/assets/d660691c-b94a-4c93-930b-579a266bdf78)
+![Screenshot 2025-06-29 033419](https://github.com/user-attachments/assets/181997a6-9fbc-4db7-9b05-7cf1c4d1c70d)
+![Screenshot 2025-06-29 033347](https://github.com/user-attachments/assets/79e439a8-8458-4a26-9b91-4121e47e76dc)
+![Screenshot 2025-06-29 033332](https://github.com/user-attachments/assets/7482e0ef-e75c-4d3f-8b27-b043281cf570)
+![Screenshot 2025-06-29 033256](https://github.com/user-attachments/assets/06c5fbe3-b83a-42b0-9321-9a9f1c481280)
+![Screenshot 2025-06-29 033205](https://github.com/user-attachments/assets/70541154-920c-4235-940a-480b6af581e1)
+![Screenshot 2025-06-29 033149](https://github.com/user-attachments/assets/8508eeb3-7329-4c74-a949-1965857d1056)
+![Screenshot 2025-06-29 032955](https://github.com/user-attachments/assets/4309f75b-c9e2-40af-9019-7c1b400709ff)
+
+You can never have too many pictures!
+
+**Total time spent: 12hr**
