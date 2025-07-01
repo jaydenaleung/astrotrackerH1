@@ -1,11 +1,20 @@
 # Astrotracker H1
 The Astrotracker H1 is a DIY star tracker camera mount for astrophotography, made to open access to astrophotography without needing to purchase a more expensive star tracker. Includes a multi-axis rotational gimbal, automatic North Pole alignment, and possible upcoming GoTo integration.
+
 ![Screenshot 2025-06-29 143516](https://github.com/user-attachments/assets/fdabbf7d-fc66-46d1-a8b9-78f6e98e323c)
 ![Screenshot 2025-06-29 135726](https://github.com/user-attachments/assets/1529174f-2fba-47f1-aa35-8de9ad0aa9d6)
 
-# How It Works
-Since astrophotography is done in very dark environments, a long exposure ranging from a second to the whole night is needed. Due to Earth's rotation, keeping the camera in the same place for a long exposure causes the image to display star trails instead of clear, detailed stars. Star trackers fix this problem by moving the camera on an equatorial mount with the path of the stars, eliminating star trails. See this picture for a diagrammed explanation:
+# How It Works: Star Trackers
+Since astrophotography is done in very dark environments, a long exposure ranging from a second to the whole night is needed. Due to Earth's rotation, keeping the camera in the same place for a long exposure causes the image to display star trails instead of clear, detailed stars. Star trackers fix this problem by rotating the camera on an equatorial mount aligned with the path of the stars, eliminating star trails. See this picture for a diagrammed explanation:
 ![image](https://github.com/user-attachments/assets/8fb4716c-f4d1-4220-9ddf-2e6f4bcd9941)
+
+# How It Works: Astrotracker H1
+This device attempts to solve these issues by upgrading the traditional equatorial mount to include a polar scope for precise alignment, a counterweight to balance the camera's weight, automatic computerized alignment using azimuthal and latitude (GPS) measurements, and a standard 1/4" tripod mount.
+
+The mechanism is based on two plates connected by a hinge and a rotating gear. The bottom plate is the swivel plate, which swivels 360° and adjusts the azimuthal heading of the device. The other plate is the rotational axis (RA) plate, which tilts to match is angle of elevation to the device's GPS latitude and is driven by a precise worm gear. Matching the device's rotation to face exactly 0° north and its tilt to its GPS latitude allows the RA, the axis perpendicular to and in the middle of the rotating gear and the RA plate, to point exactly to the North Pole (next to the star Polaris). When the RA is pointed toward the North Pole and the rotating gear turns counterclockwise, the tracking will be able to accurately and precisely follow the path of the stars and prevent capturing star trails.
+
+# Additional Features
+
 
 # The 'Why' Behind the Project
 As an avid photographer and engineer myself, I have always wanted to get more involved with astrophotography. Unfortunately, living in a city didn't play out well for me because of the massive amount of light pollution around me, blocking my view of the stars. I knew I wanted to combine my passions, and the opportunity to do so came through Hack Club's Highway to Undercity program. They fund almost any project you propose to them through their You Ship We Ship (YSWS) initiative.
@@ -16,12 +25,15 @@ After conducting some research, I found out that a star tracker was one of the m
 There are always three parts to an engineering project like this, at least for the Highway YSWS program. One is computer-aided design (CAD) modeling; for large projects, this often takes the most time, as it did with this project. Another is printed circuit board (PCB) design, which is the electrical component of the project. Finally, the brain of the build is programmed in the software part, where firmware is written onto a microcontroller that controls the hardware. See the pictures below for how I went about this!
 
 CAD:
+
 ![Screenshot 2025-06-29 032955](https://github.com/user-attachments/assets/ef3d5406-489f-4ed6-808c-16b9482de664)
 
 PCB:
+
 ![Screenshot 2025-06-30 224453](https://github.com/user-attachments/assets/7ddf3a52-341b-4e1a-b705-9e8467ffd60f)
 
 Firmware:
+
 ![image](https://github.com/user-attachments/assets/97df2937-c1de-4e24-96b7-290230785419)
 
 In your GitHub README.md file:
