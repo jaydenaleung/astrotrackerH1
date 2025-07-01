@@ -7,6 +7,7 @@ created_at: "2025-06-11"
 
 # Time Spent
 - **Total hours: 56.5h**
+- **Total days: 21 days**
 - **Time spent on CAD: 27.5h**
 - **Time spent on PCB design: 11h**
 - **Time spent on coding: 9h**
@@ -124,7 +125,7 @@ Here's the schematic:
 Here's a custom footprint I made:
 ![image](https://github.com/user-attachments/assets/d043d100-348c-4f76-9269-876968925a2e)
 
-**Total time spent: 7.5hr**
+**Total time spent: 7.5h**
 
 
 # June 25: Routing & Finishing the PCB
@@ -139,7 +140,7 @@ Here's my finished PCB layout, before routing:
 And after:
 ![Screenshot 2025-06-25 180735](https://github.com/user-attachments/assets/f095ae40-9e24-44e3-8d89-407dbf3ab61c)
 
-**Total time spent: 3.5hr**
+**Total time spent: 3.5h**
 
 
 # June 25-27: Coding the Firmware
@@ -162,7 +163,7 @@ Examples of my code:
 ![Screenshot 2025-06-28 at 12 08 26 AM](https://github.com/user-attachments/assets/2e7bc9b8-4855-415d-a494-d77490b46d26)
 ![Screenshot 2025-06-28 at 12 09 18 AM](https://github.com/user-attachments/assets/0df3d688-a1da-40b0-a591-714637547193)
 
-**Total time spent: 9hr**
+**Total time spent: 9h**
 
 
 # June 28-30: Preparing to Propose the Project
@@ -193,4 +194,4 @@ The BOM can be found in the readme. Of course, some pictures of the final design
 
 You can never have too many pictures!
 
-**Total time spent: 12hr**
+**Total time spent: 12h**
