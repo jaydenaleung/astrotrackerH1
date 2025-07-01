@@ -7,7 +7,7 @@ created_at: "2025-06-11"
 
 # Time Spent
 - **Total hours: 56.5h**
-- **Total days: 21 days**
+- **Total days: 18 days**
 - **Time spent on CAD: 27.5h**
 - **Time spent on PCB design: 11h**
 - **Time spent on coding: 9h**
