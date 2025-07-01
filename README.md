@@ -124,5 +124,5 @@ Not only did I pay attention to the detail and precision needed for such a devic
 
 | **Total minimum cost** | $220 |
 | ---------------------- | ----- |
-| **Total including 'in-case' of price changes, spare parts, etc.** | $235 |
-| **Total including in-cases, sales tax (assumed ~6%), import and customs fees, etc.** | $270 |
+| **Total including 'in-case' of price changes, spare parts, etc.** | ~$235 |
+| **Total including in-cases, sales tax (assumed ~6%), import and customs fees, etc.** | ~$270 |
