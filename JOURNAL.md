@@ -183,7 +183,6 @@ The BOM can be found in the readme. Of course, some pictures of the final design
 ![Screenshot 2025-06-29 033515](https://github.com/user-attachments/assets/38ef93da-db89-4f8d-b3d4-9a61b6eeee45)
 ![Screenshot 2025-06-29 033445](https://github.com/user-attachments/assets/d27db634-4394-450f-8333-c2bfc52f1a1f)
 ![Screenshot 2025-06-29 033621](https://github.com/user-attachments/assets/4fe4aefd-49f4-4803-8935-9a1eec814e5b)
-![Screenshot 2025-06-29 033445](https://github.com/user-attachments/assets/d660691c-b94a-4c93-930b-579a266bdf78)
 ![Screenshot 2025-06-29 033419](https://github.com/user-attachments/assets/181997a6-9fbc-4db7-9b05-7cf1c4d1c70d)
 ![Screenshot 2025-06-29 033347](https://github.com/user-attachments/assets/79e439a8-8458-4a26-9b91-4121e47e76dc)
 ![Screenshot 2025-06-29 033332](https://github.com/user-attachments/assets/7482e0ef-e75c-4d3f-8b27-b043281cf570)
