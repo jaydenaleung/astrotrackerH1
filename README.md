@@ -11,7 +11,7 @@ The Astrotracker H1 is a DIY star tracker camera mount for astrophotography, mad
 
 **Total hours spent:** hrs
 
-*See JOURNAL.md for an in-depth explanation of these numbers.*
+*See JOURNAL.md and the BOM below for an in-depth explanation of these numbers.*
 
 
 # How It Works
