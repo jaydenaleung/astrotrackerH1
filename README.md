@@ -4,24 +4,11 @@ The Astrotracker H1 is a DIY star tracker camera mount for astrophotography, mad
 ![Screenshot 2025-06-29 143516](https://github.com/user-attachments/assets/fdabbf7d-fc66-46d1-a8b9-78f6e98e323c)
 ![Screenshot 2025-06-29 135726](https://github.com/user-attachments/assets/1529174f-2fba-47f1-aa35-8de9ad0aa9d6)
 
-# How It Works: Star Trackers
-Since astrophotography is done in very dark environments, a long exposure ranging from a second to the whole night is needed. Due to Earth's rotation, keeping the camera in the same place for a long exposure causes the image to display star trails instead of clear, detailed stars. Star trackers fix this problem by rotating the camera on an equatorial mount aligned with the path of the stars, eliminating star trails. See this picture for a diagrammed explanation:
-![image](https://github.com/user-attachments/assets/8fb4716c-f4d1-4220-9ddf-2e6f4bcd9941)
+# How It Works
 
-# How It Works: Astrotracker H1
-This device attempts to solve these issues by upgrading the traditional equatorial mount to include a polar scope for precise alignment, a counterweight to balance the camera's weight, automatic computerized alignment using azimuthal and latitude (GPS) measurements, and a standard 1/4" tripod mount.
+The Three-Part Process
+-
 
-The mechanism is based on two plates connected by a hinge and a rotating gear. The bottom plate is the swivel plate, which swivels 360° and adjusts the azimuthal heading of the device. The other plate is the rotational axis (RA) plate, which tilts to match is angle of elevation to the device's GPS latitude and is driven by a precise worm gear. Matching the device's rotation to face exactly 0° north and its tilt to its GPS latitude allows the RA, the axis perpendicular to and in the middle of the rotating gear and the RA plate, to point exactly to the North Pole (next to the star Polaris). When the RA is pointed toward the North Pole and the rotating gear turns counterclockwise, the tracking will be able to accurately and precisely follow the path of the stars and prevent capturing star trails.
-
-# Additional Features
-
-
-# The 'Why' Behind the Project
-As an avid photographer and engineer myself, I have always wanted to get more involved with astrophotography. Unfortunately, living in a city didn't play out well for me because of the massive amount of light pollution around me, blocking my view of the stars. I knew I wanted to combine my passions, and the opportunity to do so came through Hack Club's Highway to Undercity program. They fund almost any project you propose to them through their You Ship We Ship (YSWS) initiative.
-
-After conducting some research, I found out that a star tracker was one of the most necessary tools to take better pictures of the night sky. Unfortunately, they were all priced around $500 USD - a hefty investment. Building a star tracker would allow me to combine my passions and achieve a more cost-effective solution at the same time.
-
-# The Three Parts
 There are always three parts to an engineering project like this, at least for the Highway YSWS program. One is computer-aided design (CAD) modeling; for large projects, this often takes the most time, as it did with this project. Another is printed circuit board (PCB) design, which is the electrical component of the project. Finally, the brain of the build is programmed in the software part, where firmware is written onto a microcontroller that controls the hardware. See the pictures below for how I went about this!
 
 CAD:
@@ -35,6 +22,40 @@ PCB:
 Firmware:
 
 ![image](https://github.com/user-attachments/assets/97df2937-c1de-4e24-96b7-290230785419)
+
+Star Trackers
+-
+
+Since astrophotography is done in very dark environments, a long exposure ranging from a second to the whole night is needed. Due to Earth's rotation, keeping the camera in the same place for a long exposure causes the image to display star trails instead of clear, detailed stars. Star trackers fix this problem by rotating the camera on an equatorial mount aligned with the path of the stars, eliminating star trails. See this picture for a diagrammed explanation:
+![image](https://github.com/user-attachments/assets/8fb4716c-f4d1-4220-9ddf-2e6f4bcd9941)
+
+Astrotracker H1
+-
+
+This device attempts to solve these issues by upgrading the traditional equatorial mount to include a polar scope for precise alignment, a counterweight to balance the camera's weight, automatic computerized alignment using azimuthal and latitude (GPS) measurements, and a standard 1/4" tripod mount.
+
+The mechanism is based on two plates connected by a hinge and a rotating gear. The bottom plate is the swivel plate, which swivels 360° and adjusts the azimuthal heading of the device. The other plate is the rotational axis (RA) plate, which tilts to match is angle of elevation to the device's GPS latitude and is driven by a precise worm gear. Matching the device's rotation to face exactly 0° north and its tilt to its GPS latitude allows the RA, the axis perpendicular to and in the middle of the rotating gear and the RA plate, to point exactly to the North Pole (next to the star Polaris). When the RA is pointed toward the North Pole and the rotating gear turns counterclockwise, the tracking will be able to accurately and precisely follow the path of the stars and prevent capturing star trails.
+
+Additional Features
+-
+
+Apart from the bare-bones mechanism that drives the star tracker, these upgrades elevate the project to create a truly effective star tracker:
+- Automatic, computerized alignment using GPS and compass data
+- Polar scope for precise adjustment
+- Counterweight for balance
+- Bubble level for precision
+- 12.5:1 reduction ratio for belt-driven rotating gear
+- 60:1 reduction ratio for worm gear-driven hinge
+- 51:1 reduction ratio for the gearbox on the stepper motor turning the swivel plate
+- Organized PCB connecting everything on one board
+- Standard 1/4" camera and tripod mount screws
+- Ball mount to point camera the right way
+- Center control console with up-down-left-right buttons for fine adjustment, start-stop tracking buttons, auto-adjustment capability, and a smart LCD UI interface
+
+# The 'Why' Behind the Project
+As an avid photographer and engineer myself, I have always wanted to get more involved with astrophotography. Unfortunately, living in a city didn't play out well for me because of the massive amount of light pollution around me, blocking my view of the stars. I knew I wanted to combine my passions, and the opportunity to do so came through Hack Club's Highway to Undercity program. They fund almost any project you propose to them through their You Ship We Ship (YSWS) initiative.
+
+After conducting some research, I found out that a star tracker was one of the most necessary tools to take better pictures of the night sky. Unfortunately, they were all priced around $500 USD - a hefty investment. Building a star tracker would allow me to combine my passions and achieve a more cost-effective solution at the same time.
 
 In your GitHub README.md file:
 A BOM in table format at the end of the README
