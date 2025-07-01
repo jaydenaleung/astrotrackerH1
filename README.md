@@ -1,9 +1,8 @@
 # Astrotracker H1
 The Astrotracker H1 is a DIY star tracker camera mount for astrophotography, made to open access to astrophotography without needing to purchase a more expensive star tracker. Includes a multi-axis rotational gimbal, automatic North Pole alignment, and possible upcoming GoTo integration.
 
-<img src="https://github.com/user-attachments/assets/fdabbf7d-fc66-46d1-a8b9-78f6e98e323c" width="300">
-![Screenshot 2025-06-29 143516](https://github.com/user-attachments/assets/fdabbf7d-fc66-46d1-a8b9-78f6e98e323c)
-![Screenshot 2025-06-29 135726](https://github.com/user-attachments/assets/1529174f-2fba-47f1-aa35-8de9ad0aa9d6)
+<img src="https://github.com/user-attachments/assets/fdabbf7d-fc66-46d1-a8b9-78f6e98e323c" height="450">
+<img src="https://github.com/user-attachments/assets/1529174f-2fba-47f1-aa35-8de9ad0aa9d6" height="450">
 
 
 # Figures
@@ -24,21 +23,22 @@ There are always three parts to an engineering project like this, at least for t
 
 CAD:
 
-![Screenshot 2025-06-29 032955](https://github.com/user-attachments/assets/ef3d5406-489f-4ed6-808c-16b9482de664)
+<img src="https://github.com/user-attachments/assets/ef3d5406-489f-4ed6-808c-16b9482de664" height="450">
 
 PCB:
 
-![Screenshot 2025-06-30 224453](https://github.com/user-attachments/assets/7ddf3a52-341b-4e1a-b705-9e8467ffd60f)
+<img src="https://github.com/user-attachments/assets/7ddf3a52-341b-4e1a-b705-9e8467ffd60f" height="450">
 
 Firmware:
 
-![image](https://github.com/user-attachments/assets/97df2937-c1de-4e24-96b7-290230785419)
+<img src="https://github.com/user-attachments/assets/97df2937-c1de-4e24-96b7-290230785419" height="450">
 
 Star Trackers
 -
 
 Since astrophotography is done in very dark environments, a long exposure ranging from a second to the whole night is needed. Due to Earth's rotation, keeping the camera in the same place for a long exposure causes the image to display star trails instead of clear, detailed stars. Star trackers fix this problem by rotating the camera on an equatorial mount aligned with the path of the stars, eliminating star trails. See this picture for a diagrammed explanation:
-![image](https://github.com/user-attachments/assets/8fb4716c-f4d1-4220-9ddf-2e6f4bcd9941)
+
+<img src="https://github.com/user-attachments/assets/8fb4716c-f4d1-4220-9ddf-2e6f4bcd9941" height="450">
 
 Astrotracker H1
 -
@@ -47,7 +47,7 @@ This device attempts to solve these issues by upgrading the traditional equatori
 
 The mechanism is based on two plates connected by a hinge and a rotating gear. The bottom plate is the swivel plate, which swivels 360° and adjusts the azimuthal heading of the device. The other plate is the rotational axis (RA) plate, which tilts to match is angle of elevation to the device's GPS latitude and is driven by a precise worm gear. Matching the device's rotation to face exactly 0° north and its tilt to its GPS latitude allows the RA, the axis perpendicular to and in the middle of the rotating gear and the RA plate, to point exactly to the North Pole (next to the star Polaris). When the RA is pointed toward the North Pole and the rotating gear turns counterclockwise, the tracking will be able to accurately and precisely follow the path of the stars and prevent capturing star trails. Microstepping enhances these features by increasing the precision and resolution of the stepper motor by up to 64 times.
 
-![Screenshot 2025-06-29 033256](https://github.com/user-attachments/assets/742cd0ea-88f7-4ca4-8f89-0a78f77b9cf3)
+<img src="https://github.com/user-attachments/assets/742cd0ea-88f7-4ca4-8f89-0a78f77b9cf3" height="450">
 
 Additional Features
 -
@@ -67,9 +67,9 @@ Apart from the bare-bones mechanism that drives the star tracker, these upgrades
 - Ball mount to point camera the right way
 - Center control console with up-down-left-right buttons for fine adjustment, start-stop tracking buttons, auto-adjustment capability, and a smart LCD UI interface
 
-![Screenshot 2025-06-29 033205](https://github.com/user-attachments/assets/6636d2c8-e260-416a-bd52-7c95160e74e9)
-![Screenshot 2025-06-29 033347](https://github.com/user-attachments/assets/82e41896-1b35-4667-9c97-da2e2985ecbb)
-![Screenshot 2025-06-29 033557](https://github.com/user-attachments/assets/578ddc86-da92-454e-837b-f4daa4648be4)
+<img src="https://github.com/user-attachments/assets/6636d2c8-e260-416a-bd52-7c95160e74e9" height="280">
+<img src="https://github.com/user-attachments/assets/82e41896-1b35-4667-9c97-da2e2985ecbb" height="280">
+<img src="https://github.com/user-attachments/assets/578ddc86-da92-454e-837b-f4daa4648be4" height="280">
 
 
 # The 'Why' Behind the Project
