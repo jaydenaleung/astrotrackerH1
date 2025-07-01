@@ -6,7 +6,7 @@ The Astrotracker H1 is a DIY star tracker camera mount for astrophotography, mad
 
 
 # Figures
-**Total Cost:** $
+**Total Cost:** $ USD
 **Total hours spent:** hrs
 *See JOURNAL.md for an in-depth explanation of these numbers.*
 
@@ -41,7 +41,7 @@ Astrotracker H1
 
 This device attempts to solve these issues by upgrading the traditional equatorial mount to include a polar scope for precise alignment, a counterweight to balance the camera's weight, automatic computerized alignment using azimuthal and latitude (GPS) measurements, and a standard 1/4" tripod mount.
 
-The mechanism is based on two plates connected by a hinge and a rotating gear. The bottom plate is the swivel plate, which swivels 360° and adjusts the azimuthal heading of the device. The other plate is the rotational axis (RA) plate, which tilts to match is angle of elevation to the device's GPS latitude and is driven by a precise worm gear. Matching the device's rotation to face exactly 0° north and its tilt to its GPS latitude allows the RA, the axis perpendicular to and in the middle of the rotating gear and the RA plate, to point exactly to the North Pole (next to the star Polaris). When the RA is pointed toward the North Pole and the rotating gear turns counterclockwise, the tracking will be able to accurately and precisely follow the path of the stars and prevent capturing star trails.
+The mechanism is based on two plates connected by a hinge and a rotating gear. The bottom plate is the swivel plate, which swivels 360° and adjusts the azimuthal heading of the device. The other plate is the rotational axis (RA) plate, which tilts to match is angle of elevation to the device's GPS latitude and is driven by a precise worm gear. Matching the device's rotation to face exactly 0° north and its tilt to its GPS latitude allows the RA, the axis perpendicular to and in the middle of the rotating gear and the RA plate, to point exactly to the North Pole (next to the star Polaris). When the RA is pointed toward the North Pole and the rotating gear turns counterclockwise, the tracking will be able to accurately and precisely follow the path of the stars and prevent capturing star trails. Microstepping enhances these features by increasing the precision and resolution of the stepper motor by up to 64 times.
 
 ![Screenshot 2025-06-29 033256](https://github.com/user-attachments/assets/742cd0ea-88f7-4ca4-8f89-0a78f77b9cf3)
 
@@ -50,6 +50,7 @@ Additional Features
 
 Apart from the bare-bones mechanism that drives the star tracker, these upgrades elevate the project to create a truly effective star tracker:
 - Automatic, computerized alignment using GPS and compass data
+- 1/16 and 1/64 microstepping for stepper motors
 - Polar scope for precise adjustment
 - Counterweight for balance
 - Bubble level for precision
@@ -72,12 +73,9 @@ As an avid photographer and engineer myself, I have always wanted to get more in
 
 After conducting some research, I found out that a star tracker was one of the most necessary tools to take better pictures of the night sky. Unfortunately, they were all priced around $500 USD - a hefty investment. Building a star tracker would allow me to combine my passions and achieve a more cost-effective solution at the same time.
 
-In your GitHub README.md file:
-A BOM in table format at the end of the README
-
 
 # Why This Is Worth Ten Points
-This star tracker isn't just any star tracker or equatorial mount - it adds many more complex features that empower young photographers on a budget like myself in pursuing astrophotography. 
+This star tracker isn't just any star tracker or equatorial mount - it adds many more complex features that empower young photographers on a budget, like myself, to pursue astrophotography. Fundamentally, the project is already as mechanically complex as a six-point project without all of the additional features. The time spent building intricate features into the mechanical model, custom footprints into the PCB, and special features into the firmware truly takes this project above and beyond the guidelines for a six-point project. Not only did I pay attention to the detail and precision needed for such a device with the bubble level, high reduction ratios, and microstepping, but I also considered what would take this above its minimum viable product by adding complex logic for auto-alignment, a balancing counterweight to increase control, and an intuitive LCD user interface controlled with standard pushbuttons. Being able to connect all the electrical components on a single, thought-out PCB and the firmware logic for tracking and auto-alignment indeed also makes this project electrically and computationally complex. Furthermore, I was able to achieve all of these features for under $300 USD when most market star trackers cost about $500 USD. Finally, I spent a ton of time perfecting every detail and feature, putting in almost sixty hours *before* building it (while the recommended minimum time spent for a ten-point project is fifty hours).
 
 
 # **Bill of Materials (BOM):**
