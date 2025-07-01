@@ -7,7 +7,7 @@ The Astrotracker H1 is a DIY star tracker camera mount for astrophotography, mad
 
 # Figures
 
-**Total Cost:** $ USD
+**Total Minimum Cost:** $220 USD
 
 **Total hours spent:** hrs
 
