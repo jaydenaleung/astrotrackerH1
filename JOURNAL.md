@@ -163,3 +163,12 @@ Examples of my code:
 ![Screenshot 2025-06-28 at 12 09 18 AM](https://github.com/user-attachments/assets/0df3d688-a1da-40b0-a591-714637547193)
 
 **Total time spent: 9hr**
+
+
+# June 28-30: Preparing to Propose the Project
+
+After finishing the firmware, most of the project was already finished. The only steps left were to add a housing onto the structure for the PCB in CAD, finish sourcing parts and writing my BOM, update my journal and readme, and submit! For the housing, I figured I could just export the PCB from KiCad as a STEP file and make the holes in the case using that solid part. It made it a lot easier, except that I decided to make the housing on a sloped plane, which didn't work well when I tried to align the coordinates of the PCB with my sketch (the coordinates were in the XYZ direction). I began to finish my part sourcing during this stage because I needed the dimensions of the electronic components I was using to make the housing. This was also helpful because I realized that I needed to make two more holes for my LiPo battery supply.
+
+Before submitting, I read over the submission guidelines again to make sure I had what I needed. Then, I went to write my journal (which I'm doing now!), and after this, I will write the readme and submit. Even though I still have a ways to go until the project is built and finished, I have to say that this project (50+ hours!) is one of the biggest projects I've ever built, one of the projects I'm most proud of, and definitely the project where I've learned the most. I firsthandedly experienced the learning curve at the beginning of a stage - whether it be CAD, PCB, or software - and saw how easily I could beat it if only I perservered through the beginning, explored, and put lots of time into it. In fact, my favorite outcome from this project isn't the final product but all of the skills I picked up through the way and the fun of learning so quickly. Thank you Hack Club for making this YSWS and community possible - I've been absolutely obsessed with Highway to Undercity for the past few weeks.
+
+The BOM can be found on the readme. Of course, some pictures of the final design (CAD and PCB):
