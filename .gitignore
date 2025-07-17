@@ -1,2 +1,13 @@
-# Irrelevant mac file
 .DS_Store
+
+.lck
+
+.bak
+
+**/fp-info-cache
+
+portcullis-backups/
+
+**/#auto_saved_files#
+
+gcode files (cura slicer for neptune 4 pro)/
