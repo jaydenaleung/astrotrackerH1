@@ -195,3 +195,14 @@ The BOM can be found in the readme. Of course, some pictures of the final design
 You can never have too many pictures!
 
 **Total time spent: 12h**
+
+
+# OTHER JOURNAL ENTRIES - YET TO BE PUT IN
+
+# July 26th: Electronic Prototyping
+
+Today I set out to prototype my circuits, and I began by soldering additional header pins onto my already-soldered header pins. This would allow me to also be able to use jumper wires to prototype on a breadboard before laying it in stone on a PCB. However, I quickly ran into problems. After wiring a stepper motor, an ESP32, and a driver, I forgot to ground the ESP32. When I plugged my 6S LiPo battery (not for the first time, this was a later time), I heard a pretty loud spark (did I just fry my driver...)? Moreover, the ESP32 I bought from Aliexpress didn't have an auto-reset circuit, so it took me an hour to figure out that I had to manually short the GPIO0 pin to ground to force it into bootloader mode (since it wouldn't do it automatically) and that it turned out that I wasn't even plugging in GPIO0 (I had header pins hanging off the side, so I accidentally plugged it into the wrong place). Electronics is very frustrating, but I learned to be more careful.
+
+That said, the circuit didn't work, so something else was probably off. However, I unplugged everything from the ESP32 - which was also unstabily soldered onto the PCB at an angle anyway - to test why it wasn't auto-resetting, so I will leave the rest of the prototyping to another day.
+
+**Total time spent: 6h**

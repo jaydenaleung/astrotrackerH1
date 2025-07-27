@@ -34,8 +34,6 @@ TMC2209 swvSD; // swv = swivel plate, SD for the stepper driver, this is for the
 const TMC2209::SerialAddress SERIAL_ADDRESS_SWV = TMC2209::SERIAL_ADDRESS_SWV;
 HardwareSerial & serial_stream = Serial1;
 
-const stepper_motor motors[] = [raSD, aoeSD, swvSD];
-
 LiquidCrystal_I2C lcd(0x27, 16, 2); // confirm I2C address later
 TinyGPSPlus gps;
 HardwareSerial gpsSerial(2);
@@ -115,23 +113,23 @@ void setup() {
   gpsSerial.begin(GPS_BAUD_RATE, SERIAL_8N1, GPS_RX_PIN, GPS_TX_PIN);
   
   // stepper motor setup
-  raSD.setup(Serial1, MOTOR_BAUD_RATE, SERIAL_ADDRESS_RA);
-  aoeSD.setup(Serial1, MOTOR_BAUD_RATE, SERIAL_ADDRESS_AOE);
-  swvSD.setup(Serial1, MOTOR_BAUD_RATE, SERIAL_ADDRESS_SWV);
+  raSD.setup(Serial2, MOTOR_BAUD_RATE, SERIAL_ADDRESS_RA);
+  aoeSD.setup(Serial2, MOTOR_BAUD_RATE, SERIAL_ADDRESS_AOE);
+  swvSD.setup(Serial2, MOTOR_BAUD_RATE, SERIAL_ADDRESS_SWV);
 
-  raSD.setRunCurrent(RUN_CURRENT_PERCENT);
+  raSD.setRunCurrent(RA_RUN_CURRENT_PERCENT);
   raSD.enableCoolStep();
   raSD.setMicrostepsPerStep(RA_MSTP);
   raSD.disable();
 
   aoeSD.setHardwareEnablePin(AOE_EN_PIN);
-  aoeSD.setRunCurrent(RUN_CURRENT_PERCENT);
+  aoeSD.setRunCurrent(AOE_RUN_CURRENT_PERCENT);
   aoeSD.enableCoolStep();
   aoeSD.setMicrostepsPerStep(AOE_MSTP);
   aoeSD.disable();
 
   swvSD.setHardwareEnablePin(SWV_EN_PIN);
-  swvSD.setRunCurrent(RUN_CURRENT_PERCENT);
+  swvSD.setRunCurrent(SWV_RUN_CURRENT_PERCENT);
   swvSD.enableCoolStep();
   swvSD.setMicrostepsPerStep(SWV_MSTP);
   swvSD.disable();
