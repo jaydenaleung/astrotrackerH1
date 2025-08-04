@@ -14,7 +14,7 @@
 #include <Preferences.h> // comes preinstalled on ESP32's Arduino core
 #include <LiquidCrystal_I2C.h> // LiquidCrystal I2C library by Frank de Brabander
 #include <TinyGPSPlus.h> // TinyGPSPlus library by Mikal Hart
-#include<QMC5883LCompass.h> // QMC5883LCompass library by MPrograms
+#include <QMC5883LCompass.h> // QMC5883LCompass library by MPrograms
 #include <TMC2209.h> // TMC2209 library by Peter Polidoro
 
 // initialize preferences

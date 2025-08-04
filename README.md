@@ -31,6 +31,8 @@ PCB:
 
 <img src="https://github.com/user-attachments/assets/7ddf3a52-341b-4e1a-b705-9e8467ffd60f" height="450">
 
+<img src="https://github.com/user-attachments/assets/9a216d7a-0506-446e-a1d0-45249d398259" height="450">
+
 Firmware:
 
 <img src="https://github.com/user-attachments/assets/97df2937-c1de-4e24-96b7-290230785419" height="450">
