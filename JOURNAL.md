@@ -6,12 +6,12 @@ created_at: "2025-06-11"
 ---
 
 # Time Spent
-- **Total hours: 134h**
+- **Total hours: 135h**
 - **Total days: 33 days**
 - **Time spent on CAD: 27.5h**
 - **Time spent on PCB design: 11h**
 - **Time spent on coding: 9h**
-- **Time spent on physical assembly: 77h**
+- **Time spent on physical assembly: 78h**
 - **Time spent on sourcing parts, writing journal and readme, etc.: ~10.5h**
 
 # June 11th: Research and Planning
@@ -287,4 +287,4 @@ VIDEO DEMO: [https://bit.ly/astrotrackerh1-demo](url)
 ![IMG_4180](https://github.com/user-attachments/assets/dcb19361-2f2e-4687-a0e6-fa2c58651c70)
 ![IMG_4174](https://github.com/user-attachments/assets/1f18f272-322d-4a87-9425-e35b619af5c6)
 
-**Total time spent: 20h** (wow that was a crazy run)
+**Total time spent: 21h** (wow that was a crazy run)
