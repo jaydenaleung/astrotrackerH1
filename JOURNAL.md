@@ -280,9 +280,10 @@ The hinge motor didn't worked as well as I wanted it to since it kept pushing th
 
 I finished putting it together, but if you want to see the finished version, you'll have to look at my video demo!
 
-VIDEO DEMO: LINK
+VIDEO DEMO: [https://bit.ly/astrotrackerh1-demo](url)
 
-FINAL PRODUCT PHOTO
+![IMG_4185](https://github.com/user-attachments/assets/1440710d-3711-46b7-b80f-71ceffd69088)
+
 ![IMG_4180](https://github.com/user-attachments/assets/dcb19361-2f2e-4687-a0e6-fa2c58651c70)
 ![IMG_4174](https://github.com/user-attachments/assets/1f18f272-322d-4a87-9425-e35b619af5c6)
 
