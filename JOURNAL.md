@@ -228,7 +228,8 @@ PICTURES
 
 After a brief hiatus to work on my other project, I returned to physically assembling my build. I finished putting the rotational axis (RA) plate, the swivel (base) plate, and the hinge together (with, of course, some handy modifications to the plates and a good amount of hot glue), and I mounted the hinge motora. I finished scraping out the motor housing for the swivel motor (which was still a pain - but heating it up with a heat gun worked). I even mounted my worm and gear, which turned out to be positioned really nicely! Until I screwed it in a bit too much and broke the small part it was screwing onto... hot glue became my friend here.
 
-PICTURES
+![IMG_4080](https://github.com/user-attachments/assets/8c08a982-06b8-4df9-b415-fa22d55df81d)
+![IMG_4081](https://github.com/user-attachments/assets/bb7557ce-8414-4f9d-bdb9-08dea928af1d)
 
 **Total time spent: 2h**
 
@@ -257,7 +258,12 @@ A4988/TMC2209 Stepper Motor Driver + NEMA 17 Stepper Motor:
 - My solutions: used A4988s instead of TMC2209s, bought a multimeter and a 12V battery instead of a 6S LiPo, and I finally figured out that my motor was just jittering when I swapped two of my motor coil wires, and suddenly it worked perfectly. I cried in pain for such a simple solution that I'd overlooked many times that had caused me about three consecutive days of consistent trial and error (not to worry, wasn't my fault, the Amazon wiring was wrong and I'd been strictly following that...).
 - My lessons: learned a lot about voltage, amperage, batteries, etc. Undercurrent and overvoltage were common issues for me. Also, don't ever trust the manufacturer's color-coded wiring for stepper motors - instead, connect two wires and see if the shaft is harder to turn. If it is, then that's a pair, and you can connect both +/1 or -/2 outputs to it. *Don't overlook anything.* Multimeters are helpful.
 
-PICTURES
+![IMG_4167](https://github.com/user-attachments/assets/4d006c38-6eee-4bb4-9fae-fde5d625a26d)
+![IMG_4170](https://github.com/user-attachments/assets/a8a0a678-0f50-4237-89d7-2237d7011f79)
+
+P.S. There was this really nice electronics store in Toronto that I got my battery from, and it's literally a hardware hacker's dream. There's like every type of hardware you can imagine... combine that with a Home Depot and you basically get Undercity's hardware shop but at warehouse size.
+
+![IMG_4164](https://github.com/user-attachments/assets/9e4d90e1-b437-4a4b-b81b-54faa5f318eb)
 
 **Total time spent: 35h** (much better than my last project considering this had more complicated parts!)
 
@@ -276,6 +282,8 @@ I finished putting it together, but if you want to see the finished version, you
 
 VIDEO DEMO: LINK
 
-PICTURES
+FINAL PRODUCT PHOTO
+![IMG_4180](https://github.com/user-attachments/assets/dcb19361-2f2e-4687-a0e6-fa2c58651c70)
+![IMG_4174](https://github.com/user-attachments/assets/1f18f272-322d-4a87-9425-e35b619af5c6)
 
 **Total time spent: 20h** (wow that was a crazy run)
