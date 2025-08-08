@@ -197,7 +197,21 @@ You can never have too many pictures!
 **Total time spent: 12h**
 
 
-# OTHER JOURNAL ENTRIES - YET TO BE PUT IN
+# July 18-20: Printing
+
+Today is printing day! Preparing the models took about an hour, but nothing compared to the time it took to print them - about fifty hours. My poor 3D printer :( but I recieved the black and orange filament, which made for some sick colors. I previously had some bed adhesion issues with my Elegoo Neptune 4 Pro, but I figured out that I could fix them by washing the plate with hot water each time, then reapplying glue onto the buildplate where it would print. That, and lowering the print speed to avoid layer shifting. I think I went through three glue sticks...
+
+**Total time spent: 2h** (preparing models and cleaning print beds)
+
+
+# July 21-25: Putting The Model Together & Testing Connections
+
+During this time, I tried to put the model together as best as possible. I began with the two plates and, realizing they needed a bit more attention, turned my focus to the motors instead. The housing I made for one of the motors was too small, so that was a pain to manually scrape out (I didn't want to print another one). Similar labor followed.
+
+As for the electrical aspect, I began by soldering everything I could onto the PCB. Bad idea. I thought this would help since I could just complete the PCB and forget about the electrical, but woah... was I wrong. Later, I ended up taking out everything I put onto the PCB and testing them each individually by hand before placing them again on the PCB.
+
+**Total time spent: 12h**
+
 
 # July 26th: Electronic Prototyping
 
@@ -205,4 +219,63 @@ Today I set out to prototype my circuits, and I began by soldering additional he
 
 That said, the circuit didn't work, so something else was probably off. However, I unplugged everything from the ESP32 - which was also unstabily soldered onto the PCB at an angle anyway - to test why it wasn't auto-resetting, so I will leave the rest of the prototyping to another day.
 
+PICTURES
+
 **Total time spent: 6h**
+
+
+# August 2: Mechanical Part 2
+
+After a brief hiatus to work on my other project, I returned to physically assembling my build. I finished putting the rotational axis (RA) plate, the swivel (base) plate, and the hinge together (with, of course, some handy modifications to the plates and a good amount of hot glue), and I mounted the hinge motora. I finished scraping out the motor housing for the swivel motor (which was still a pain - but heating it up with a heat gun worked). I even mounted my worm and gear, which turned out to be positioned really nicely! Until I screwed it in a bit too much and broke the small part it was screwing onto... hot glue became my friend here.
+
+PICTURES
+
+**Total time spent: 2h**
+
+
+# August 3-6: Electrical Part 2 - The Good, The Bad, The Ugly
+
+As always, the electrical aspect was a really big pain. But I'm actually really glad for the struggles I went through this time, because the answer wasn't so silly and I learned a lot from it.
+
+I2C LCD:
+- Worked normally, but I decided to power it through my 5v power bank instead.
+- Seemed to be dim running on 3.3V.
+
+NEO-8M GPS Module:
+- Worked at first, but I spent a good amount of time wondering why it wasn't getting any satellite data.
+- The reason was because (1) it may have been only showing binary messages, so I wrote a serial command to change it to output NMEA address like it should, or (2) I wasn't outside, or (3) the breadboard connections were pretty loose - once I soldered them, I got solid GPS data.
+- Was pretty cool to see it work.
+
+QMC5883L Module:
+- Turns out it wasn't really a QMC5883L module - the factory gave me a different chip under the guise of a QMC5883L module to save costs.
+- I was getting gibberish because I didn't have the right register addresses.
+- The different chip, I found, was a QMC5883**P** chip. I came across this answer in a forum I saw, and the person who discovered that also provided example code and a datasheet. I was very grateful for that.
+
+A4988/TMC2209 Stepper Motor Driver + NEMA 17 Stepper Motor:
+- The most difficult piece of hardware I worked with for this project. Sounds really simple, but it wasn't for me.
+- A few issues: didn't have a multimeter, the wiring on the Amazon page from the manufacturer was wrong, used a 22.2V (6S) LiPo battery instead of a 12V lead-acid one (my later replacement), made two of my TMC2209s "explode", rendered another TMC2209 and one or two A4988s unusable, accidentally fried my last 38-pin ESP32 by shorting 12V to its ground with the multimeter, A4988 current maximum was too low, and I had limited access to replacement parts.
+- My solutions: used A4988s instead of TMC2209s, bought a multimeter and a 12V battery instead of a 6S LiPo, and I finally figured out that my motor was just jittering when I swapped two of my motor coil wires, and suddenly it worked perfectly. I cried in pain for such a simple solution that I'd overlooked many times that had caused me about three consecutive days of consistent trial and error (not to worry, wasn't my fault, the Amazon wiring was wrong and I'd been strictly following that...).
+- My lessons: learned a lot about voltage, amperage, batteries, etc. Undercurrent and overvoltage were common issues for me. Also, don't ever trust the manufacturer's color-coded wiring for stepper motors - instead, connect two wires and see if the shaft is harder to turn. If it is, then that's a pair, and you can connect both +/1 or -/2 outputs to it. *Don't overlook anything.* Multimeters are helpful.
+
+PICTURES
+
+**Total time spent: 35h** (much better than my last project considering this had more complicated parts!)
+
+
+# August 7: The PCB, Finally; Mechanical Part 3; and The Final Stretch
+
+10:30 AM. I'd gone to bed late the previous night. A little over thirteen hours until the submission deadline. It was the final stretch. Today, I was able to replicate the success I had the previous night with the motors and turned to testing them all at once. I figured out that I couldn't power all three drivers at once - Vref dipped significantly. However, I found out later that by setting the ENABLE pin high, I could prevent the driver from drawing too much current from the battery so that one driver would be able to draw enough current. After testing each of the motors, I tried to use a multimeter to measure the Vref level of one of the drivers... but accidentally shorted the 12V battery pin to the ground pin, instantly frying my last 38-pin ESP32 (which fit on my PCB). 
+
+Unfortunately, this meant that I had to now "translate" my PCB to a 30-pin ESP32; that is, I soldered jumper wires to the important pins on the PCB, with the other end going to pins on my 30-pin ESP32. That took a while, but after that, I had even more soldering to do. I finally soldered all my other components (including the satisfying line of resistors) - by that time it was about 8:30PM when I finished soldering, and after dinner, I turned to combining the electrical with the mechanical.
+
+I finished the mechanical piece by adding some rubber bands and springs to my hinge so that the worm and gear would mate better, mounting the jerry-rigged PCB housing onto the swivel plate, placing the cap on the swivel motor housing, attaching all my motors, and finally placing my camera and its counterweight on it.
+
+The hinge motor didn't worked as well as I wanted it to since it kept pushing the gear up instead of rotating it. However, when I applied some rotational force with my fingers, it rotated the RA plate quite nicely for a single worm-and-gear hinge (that probably would not happen as well with 1.6kg extra from my camera and its counterweight sitting on top of it). All else was fine, except the hole sizes had shrunk for my standoffs, which meant that I was now manually threading 35mm of hard plastic.
+
+I finished putting it together, but if you want to see the finished version, you'll have to look at my video demo!
+
+VIDEO DEMO: LINK
+
+PICTURES
+
+**Total time spent: 20h** (wow that was a crazy run)

@@ -6,6 +6,12 @@
 // starting the serial, defining library class objects, etc. that is generally required to use the library anyway. The only significant portion of code that
 // was not mine is under the calibrateCompass() function which comes installed with the QMC5883LCompass Arduino library.
 
+// NOTE: MANY QMC5883L MODULES DO NOT HAVE THE GENUINE QMC5883L CHIP, EVEN IF THEY CLAIM THEY DO. THERE ARE TWO OPTIONS FROM HERE: BUY A MAGNOMETER CHIP FROM A MORE REPUTABLE
+// SELLER OR CONSIDER THAT YOUR CHIP MAY ACTUALLY BE A QMC5883P CHIP. THIS CODE IS WRITTEN FOR THE QMC5883P CHIP, SINCE THAT'S WHAT I HAVE. THE DATASHEET FOR IT IS IN THE FOLDER PATH:
+// astrotrackerH1\pcb\libraries\QMC5883L\QMC5883P Datasheet Rev.C (considering that my QMC5883L is actually a QMC5883P. The footprint and schematic are the same nevertheless.)
+
+// NOTE: THE NEMA 17 MODEL LISTED IN THE BOM'S WIRING IS OFTEN NOT AS IS SAID ON AMAZON. MY MOTOR WIRING IS: 1A/A+ = BLACK; 2A/A- = RED; 1B/B+ = GREEN; 2B/B- = BLUE.
+
 //////////////////////////////////////////////////////////////////
 
 // here include libraries
