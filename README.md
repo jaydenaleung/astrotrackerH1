@@ -1,6 +1,7 @@
 # Astrotracker H1
 Astrotracker H1 is a DIY star tracker camera mount for astrophotography, made to open access to astrophotography without needing to purchase a more expensive star tracker. Includes a multi-axis rotational gimbal, automatic North Pole alignment, and possible upcoming GoTo integration.
 
+<img src="https://github.com/user-attachments/assets/5486cbfa-788f-4783-a8f8-20b3ee48bf0b" height="450">
 <img src="https://github.com/user-attachments/assets/fdabbf7d-fc66-46d1-a8b9-78f6e98e323c" height="450">
 <img src="https://github.com/user-attachments/assets/1529174f-2fba-47f1-aa35-8de9ad0aa9d6" height="450">
 
@@ -9,9 +10,9 @@ Astrotracker H1 is a DIY star tracker camera mount for astrophotography, made to
 
 **Total Minimum Cost:** $220 USD
 
-**Total Hours Spent:** 56.5 hrs
+**Total Hours Spent:** 135 hrs
 
-**Total Days Spent:** 18 days
+**Total Days Spent:** 33 days
 
 *See JOURNAL.md and the BOM below for an in-depth explanation of these numbers.*
 
