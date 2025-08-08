@@ -6,13 +6,13 @@ created_at: "2025-06-11"
 ---
 
 # Time Spent
-- **Total hours: 56.5h**
-- **Total days: 18 days**
+- **Total hours: 134h**
+- **Total days: 33 days**
 - **Time spent on CAD: 27.5h**
 - **Time spent on PCB design: 11h**
 - **Time spent on coding: 9h**
-- **Time spent on physical assembly: (not yet completed)**
-- **Time spent on sourcing parts, writing journal and readme, etc.: ~9h**
+- **Time spent on physical assembly: 77h**
+- **Time spent on sourcing parts, writing journal and readme, etc.: ~10.5h**
 
 # June 11th: Research and Planning
 
