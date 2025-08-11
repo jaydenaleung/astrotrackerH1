@@ -21,7 +21,7 @@
 #include <LiquidCrystal_I2C.h> // LiquidCrystal I2C library by Frank de Brabander
 #include <TinyGPSPlus.h> // TinyGPSPlus library by Mikal Hart
 #include <QMC5883LCompass.h> // QMC5883LCompass library by MPrograms
-#include <TMC2209.h> // TMC2209 library by Peter Polidoro
+#include <AccelStepper.h> // AccelStepper library
 
 // initialize preferences
 Preferences prefs;
@@ -32,46 +32,42 @@ const long MOTOR_BAUD_RATE = 115200;
 const long GPS_BAUD_RATE = 9600;
 
 // here initialize objects and set up libraries
-TMC2209 raSD; // ra = rotational axis, SD for the stepper driver, this is for the RA stepper motor 
-const TMC2209::SerialAddress SERIAL_ADDRESS_RA = TMC2209::SERIAL_ADDRESS_RA;
-TMC2209 aoeSD; // aoe = angle of elevation, SD for the stepper driver, this is for the AOE stepper motor
-const TMC2209::SerialAddress SERIAL_ADDRESS_AOE = TMC2209::SERIAL_ADDRESS_AOE;
-TMC2209 swvSD; // swv = swivel plate, SD for the stepper driver, this is for the swivel plate stepper motor
-const TMC2209::SerialAddress SERIAL_ADDRESS_SWV = TMC2209::SERIAL_ADDRESS_SWV;
-HardwareSerial & serial_stream = Serial1;
-
 LiquidCrystal_I2C lcd(0x27, 16, 2); // confirm I2C address later
 TinyGPSPlus gps;
 HardwareSerial gpsSerial(2);
 QMC5883LCompass compass;
 
 // here define pins
-#define UART_PIN 17 // UART connection pin, with PDN connected as well
-#define GPS_RX_PIN 16
-#define GPS_TX_PIN 17
+#define GPS_RX_PIN 17 // GPS's RX pin goes to the ESP32 TX pin (17)
+#define GPS_TX_PIN 16 // GPS's TX pin goes to the ESP32 RX pin (16)
 
 // Rotational axis (RA) motor
 #define RA_EN_PIN 19
 #define RA_STEP_PIN 4
-#define RA_DIR_PIN 15
+#define RA_DIR_PIN 25
 
 // Angle of elevation (AOE) motor
 #define AOE_EN_PIN 18
-#define AOE_STEP_PIN 0
-#define AOE_DIR_PIN 8 // needs to be changed to another pin
+#define AOE_STEP_PIN 13
+#define AOE_DIR_PIN 26
 
 // Swivel plate (SWV) motor
 #define SWV_EN_PIN 5
-#define SWV_STEP_PIN 2
-#define SWV_DIR_PIN 7
+#define SWV_STEP_PIN 14
+#define SWV_DIR_PIN 27
 
-#define START_PIN 25
-#define STOP_PIN 26
-#define ALIGN_PIN 27
-#define UP_PIN 34
-#define DOWN_PIN 33
-#define LEFT_PIN 35
-#define RIGHT_PIN 32
+// some pins not used for now
+#define START_PIN 35
+// #define STOP_PIN 26
+#define ALIGN_PIN 34
+// #define UP_PIN 34
+// #define DOWN_PIN 33
+// #define LEFT_PIN 35
+// #define RIGHT_PIN 32
+
+AccelStepper raSD(1,RA_STEP_PIN,RA_DIR_PIN); // ra = rotational axis, SD for the stepper driver, this is for the RA stepper motor 
+AccelStepper aoeSD(1,AOE_STEP_PIN,AOE_DIR_PIN); // aoe = angle of elevation, SD for the stepper driver, this is for the AOE stepper motor
+AccelStepper swvSD(1,SWV_STEP_PIN,SWV_DIR_PIN); // swv = swivel plate, SD for the stepper driver, this is for the swivel plate stepper motor
 
 bool trackingState = false;
 bool aligning = false;
@@ -88,25 +84,33 @@ String formattedSecsCounter = "0h 0m 0.0s"; // formatted into hh:mm:ss.ms
 
 const int32_t STOP_VELOCITY = 0; // defined once
 
-const int32_t RA_RUN_VELOCITY = 2; // sidereal alignment (star tracking) at 0.00417807462 deg/s (~15 arcseconds/s) with 1/64 microstepping. NEMA 17 moves at 200 steps/rev = 12800 microsteps/rev. 12.5:1 belt drive gear reduction, 12800 microsteps = 1 rev of the smaller gear = 1/12.5 rev of the bigger gear (we want this to move) = 28.8 deg of the bigger gear; 0.00014507 microsteps = 28.8 deg; 1.8569201964 microsteps/s = 0.00417807462 deg/s. Round to 2 microsteps/s with ~7.7% error.
-const int RA_MSTP = 64; // microstepping 1/64
-const uint8_t RA_RUN_CURRENT_PERCENT = 50;
+/* The following is commented out for TMC2209 use */
 
-const int32_t AOE_RUN_VELOCITY = 9600; // latitudinal alignment at 18 deg/s (deg/s should be a multiple of 9) with 1/16 microstepping. NEMA 17 moves at 200 steps/rev = 3200 microsteps/rev. 60:1 worm gear reduction, 3200 microsteps = 1 rev of the worm gear = 1/60 rev of plate gear = 6 deg of latitude change; 18 deg latitude change = 9600 microsteps. 18 deg/s = 9600 microsteps/s
-const int AOE_MSTP = 16;
-const uint8_t AOE_RUN_CURRENT_PERCENT = 50;
+// const int32_t RA_RUN_VELOCITY = 2; // sidereal alignment (star tracking) at 0.00417807462 deg/s (~15 arcseconds/s) with 1/64 microstepping. NEMA 17 moves at 200 steps/rev = 12800 microsteps/rev. 12.5:1 belt drive gear reduction, 12800 microsteps = 1 rev of the smaller gear = 1/12.5 rev of the bigger gear (we want this to move) = 28.8 deg of the bigger gear; 0.00014507 microsteps = 28.8 deg; 1.8569201964 microsteps/s = 0.00417807462 deg/s. Round to 2 microsteps/s with ~7.7% error.
+// const int RA_MSTP = 64; // microstepping 1/64
+// const uint8_t RA_RUN_CURRENT_PERCENT = 50;
+
+// const int32_t AOE_RUN_VELOCITY = 9600; // latitudinal alignment at 18 deg/s (deg/s should be a multiple of 9) with 1/16 microstepping. NEMA 17 moves at 200 steps/rev = 3200 microsteps/rev. 60:1 worm gear reduction, 3200 microsteps = 1 rev of the worm gear = 1/60 rev of plate gear = 6 deg of latitude change; 18 deg latitude change = 9600 microsteps. 18 deg/s = 9600 microsteps/s
+// const int AOE_MSTP = 16;
+// const uint8_t AOE_RUN_CURRENT_PERCENT = 50;
 double latAngle; // latitudinal positioning of mechanism (saved in computer, physically set at start)
 
-const int32_t SWV_RUN_VELOCITY = 480; // azimuthal alignment at 54 deg/s with 1/16 microstepping. NEMA 17 moves at 200 steps/rev = 3200 microsteps/rev. Only one single gear attached to motor. 3200 microsteps = 360 deg; 480 microsteps = 54 deg; 480 microsteps/s = 54 deg/s
-const int SWV_MSTP = 16;
-const uint8_t SWV_RUN_CURRENT_PERCENT = 50;
+// const int32_t SWV_RUN_VELOCITY = 480; // azimuthal alignment at 54 deg/s with 1/16 microstepping. NEMA 17 moves at 200 steps/rev = 3200 microsteps/rev. Only one single gear attached to motor. 3200 microsteps = 360 deg; 480 microsteps = 54 deg; 480 microsteps/s = 54 deg/s
+// const int SWV_MSTP = 16;
+// const uint8_t SWV_RUN_CURRENT_PERCENT = 50;
 double azAngle; // azithumal positioning (heading) of mechanism
 
+/* The following is for A4988 use */
+
+const int RA_RUN_VELOCITY = 0.464230513; // 1/16 microstepping; sidereal alignment (star tracking) at 0.00417807462 deg/s with 1/16 microstepping. NEMA 17 moves at 200 steps/rev = 3200 microsteps/rev. 12.5:1 belt drive gear reduction, 3200 microsteps = 1 rev of the smaller gear = 1/12.5 rev of the bigger gear = 28.8 deg of the bigger gear per 3200 microsteps. Sidereal rate 0.00417807462 deg/s; 6893.12725 seconds per 3200 microsteps. 3200 microsteps/6893.12725s = 0.464230513 microsteps/s
+const int AOE_RUN_VELOCITY = 2400;
+const int SWV_RUN_VELOCITY = 120;
+
 // create custom characters for LCD
-byte up[] = { B00100, B01110, B10101, B00100, B00100, B00100, B00100, B00100 };
-byte down[] = { B00100, B00100, B00100, B00100, B00100, B10101, B01110, B00100 };
-byte left[] = { B00000, B00000, B00100, B01000, B11111, B01000, B00100, B00000 };
-byte right[] = { B00000, B00000, B00100, B00010, B11111, B00010, B00100, B00000 }
+byte upChar[] = { B00100, B01110, B10101, B00100, B00100, B00100, B00100, B00100 };
+byte downChar[] = { B00100, B00100, B00100, B00100, B00100, B10101, B01110, B00100 };
+byte leftChar[] = { B00000, B00000, B00100, B01000, B11111, B01000, B00100, B00000 };
+byte rightChar[] = { B00000, B00000, B00100, B00010, B11111, B00010, B00100, B00000 };
 byte hemL[] = { B00111, B01000, B10000, B11000, B10111, B10000, B01000, B00111 };
 byte hemR[] = { B10000, B01000, B00100, B01100, B10100, B00100, B01000, B10000 };
 byte lat[] = { B00000, B00100, B01110, B10101, B10101, B10101, B01110, B00100 };
@@ -118,48 +122,63 @@ void setup() {
   Serial.begin(SERIAL_BAUD_RATE);
   gpsSerial.begin(GPS_BAUD_RATE, SERIAL_8N1, GPS_RX_PIN, GPS_TX_PIN);
   
-  // stepper motor setup
-  raSD.setup(Serial2, MOTOR_BAUD_RATE, SERIAL_ADDRESS_RA);
-  aoeSD.setup(Serial2, MOTOR_BAUD_RATE, SERIAL_ADDRESS_AOE);
-  swvSD.setup(Serial2, MOTOR_BAUD_RATE, SERIAL_ADDRESS_SWV);
-
-  raSD.setRunCurrent(RA_RUN_CURRENT_PERCENT);
-  raSD.enableCoolStep();
-  raSD.setMicrostepsPerStep(RA_MSTP);
-  raSD.disable();
-
-  aoeSD.setHardwareEnablePin(AOE_EN_PIN);
-  aoeSD.setRunCurrent(AOE_RUN_CURRENT_PERCENT);
-  aoeSD.enableCoolStep();
-  aoeSD.setMicrostepsPerStep(AOE_MSTP);
-  aoeSD.disable();
-
-  swvSD.setHardwareEnablePin(SWV_EN_PIN);
-  swvSD.setRunCurrent(SWV_RUN_CURRENT_PERCENT);
-  swvSD.enableCoolStep();
-  swvSD.setMicrostepsPerStep(SWV_MSTP);
-  swvSD.disable();
-
   // set pinmodes
-  raSD.setHardwareEnablePin(RA_EN_PIN);
+  pinMode(RA_EN_PIN, OUTPUT);
   pinMode(RA_STEP_PIN, OUTPUT);
   pinMode(RA_DIR_PIN, OUTPUT);
 
-  aoeSD.setHardwareEnablePin(AOE_EN_PIN);
+  pinMode(AOE_EN_PIN, OUTPUT);
   pinMode(AOE_STEP_PIN, OUTPUT);
   pinMode(AOE_DIR_PIN, OUTPUT);
 
-  swvSD.setHardwareEnablePin(SWV_EN_PIN);
+  pinMode(SWV_EN_PIN, OUTPUT);
   pinMode(SWV_STEP_PIN, OUTPUT);
   pinMode(SWV_DIR_PIN, OUTPUT);
 
-  pinMode(START_PIN, INPUT_PULLUP);
-  pinMode(STOP_PIN, INPUT_PULLUP);
-  pinMode(ALIGN_PIN, INPUT_PULLUP);
-  pinMode(UP_PIN, INPUT_PULLUP);
-  pinMode(DOWN_PIN, INPUT_PULLUP);
-  pinMode(LEFT_PIN, INPUT_PULLUP);
-  pinMode(RIGHT_PIN, INPUT_PULLUP);
+  pinMode(START_PIN, INPUT);
+  // pinMode(STOP_PIN, INPUT);
+  pinMode(ALIGN_PIN, INPUT);
+  // pinMode(UP_PIN, INPUT);
+  // pinMode(DOWN_PIN, INPUT);
+  // pinMode(LEFT_PIN, INPUT);
+  // pinMode(RIGHT_PIN, INPUT);
+
+  // set initial digitalWrites
+  digitalWrite(RA_EN_PIN,HIGH);
+  digitalWrite(AOE_EN_PIN,HIGH);
+  digitalWrite(SWV_EN_PIN,HIGH);
+
+  // stepper motor setup for TMC2209
+  // raSD.setup(Serial2, MOTOR_BAUD_RATE, SERIAL_ADDRESS_RA);
+  // aoeSD.setup(Serial2, MOTOR_BAUD_RATE, SERIAL_ADDRESS_AOE);
+  // swvSD.setup(Serial2, MOTOR_BAUD_RATE, SERIAL_ADDRESS_SWV);
+
+  // raSD.setRunCurrent(RA_RUN_CURRENT_PERCENT);
+  // raSD.enableCoolStep();
+  // raSD.setMicrostepsPerStep(RA_MSTP);
+  // raSD.disable();
+
+  // aoeSD.setHardwareEnablePin(AOE_EN_PIN);
+  // aoeSD.setRunCurrent(AOE_RUN_CURRENT_PERCENT);
+  // aoeSD.enableCoolStep();
+  // aoeSD.setMicrostepsPerStep(AOE_MSTP);
+  // aoeSD.disable();
+
+  // swvSD.setHardwareEnablePin(SWV_EN_PIN);
+  // swvSD.setRunCurrent(SWV_RUN_CURRENT_PERCENT);
+  // swvSD.enableCoolStep();
+  // swvSD.setMicrostepsPerStep(SWV_MSTP);
+  // swvSD.disable();
+
+
+  // stepper motor setup for A4988
+  raSD.setMaxSpeed(10000);
+  aoeSD.setMaxSpeed(10000);
+  swvSD.setMaxSpeed(10000);
+  
+  raSD.setSpeed(0);
+  aoeSD.setSpeed(0);
+  swvSD.setSpeed(0);
 
   // get position on startup
   getPosition();
@@ -175,10 +194,10 @@ void setup() {
   lcd.init();
   lcd.backlight();
 
-  lcd.createChar(0, up);
-  lcd.createChar(1, down);
-  lcd.createChar(2, left);
-  lcd.createChar(3, right);
+  lcd.createChar(0, upChar);
+  lcd.createChar(1, downChar);
+  lcd.createChar(2, leftChar);
+  lcd.createChar(3, rightChar);
   lcd.createChar(4, hemL);
   lcd.createChar(5, hemR);
   lcd.createChar(6, lat);
@@ -291,16 +310,12 @@ void trackStopped() {
 }
 
 void loop() {
-  // setup for custom functions
-  digitalWrite(RA_DIR_PIN, LOW);
-  digitalWrite(AOE_DIR_PIN, LOW);
-  digitalWrite(SWV_DIR_PIN, LOW);
   
-  if (hemisphere == 'N' || hemisphere == 'E') {
-    raSD.enableInverseMotorDirection(); // counterclockwise - rotate this way for tracking in Northern Hemisphere
-  } else {
-    raSD.disableInverseMotorDirection(); // clockwise - Southern Hemisphere
-  }
+  // if (hemisphere == 'N' || hemisphere == 'E') {
+  //   raSD.enableInverseMotorDirection(); // counterclockwise - rotate this way for tracking in Northern Hemisphere
+  // } else {
+  //   raSD.disableInverseMotorDirection(); // clockwise - Southern Hemisphere
+  // }
 
   getPosition();
 
@@ -451,51 +466,59 @@ String updateCount() {
 }
 
 void trackingStart() { // RA motor
-  raSD.enable();
-  raSD.moveAtVelocity(RA_RUN_VELOCITY);
+  digitalWrite(RA_EN_PIN,LOW);
+  raSD.setSpeed(RA_RUN_VELOCITY);
 }
 
 void trackingStop() { // RA motor
-  raSD.moveAtVelocity(STOP_VELOCITY); // stop
-  raSD.disable();
+  raSD.setSpeed(STOP_VELOCITY); // stop
+  digitalWrite(RA_EN_PIN,HIGH);
 }
 
 void latitudeAlign() { // AOE motor - 9600 microsteps per second = 18 degrees per second (60:1 worm gear reduction)
-  aoeSD.enable();
+  digitalWrite(AOE_EN_PIN,LOW);
   
   if (latReading > latAngle) { // 'angle' is the goal latitude
-    aoeSD.enableInverseMotorDirection(); // counterclockwise - turning the worm gear this way increases the latitudinal angle
+    AOE_RUN_VELOCITY *= -1; // counterclockwise - turning the worm gear this way increases the latitudinal angle
   } else {
-    aoeSD.disableInverseMotorDirection() // clockwise - turning the worm gear this way decreases the latitudinal angle
+    // do nothing = clockwise - turning the worm gear this way decreases the latitudinal angle
   }
   
-  const int duration = (latReading / 18) * 1000; // in milliseconds
-  aoeSD.moveAtVelocity(AOE_RUN_VELOCITY);
-  delay((int)round(duration));
-  aoeSD.moveAtVelocity(STOP_VELOCITY); // stop
+  const float duration = (latReading / 18)
+  aoeSD.setSpeed(AOE_RUN_VELOCITY);
+  aoeSD.move((int)(duration*AOE_RUN_VELOCITY));
+  aoeSD.setSpeed(STOP_VELOCITY); // stop
+
+  if (latReading > latAngle) { // change it back
+    AOE_RUN_VELOCITY *= -1;
+  }
   
   latAngle = latReading;
   saveMechLat();
 
-  aoeSD.disable();
+  digitalWrite(AOE_EN_PIN,HIGH);
 }
 
 void azimuthalAlign() { // swivel motor - 480 microsteps per second = 54 degrees per second
-  swvSD.enable()
+  digitalWrite(SWV_EN_PIN,LOW);
 
   if (azAngle < 180 || azAngle = 180) { // 0 deg is the goal heading, direction depends on mechanism heading given by magnometer
-    swvSD.enableInverseMotorDirection(); // counterclockwise - turning the mechanism towards North
+    SWV_RUN_VELOCITY *= -1; // counterclockwise - turning the mechanism towards North
     const int duration = (azAngle / 54) * 1000; // in milliseconds
   } else {
-    swvSD.disableInverseMotorDirection() // clockwise - turning the mechanism towards North
+    // do nothing - clockwise - turning the mechanism towards North
     const int tempAngle = azAngle - 180;
     const int duration = (tempAngle / 54) * 1000;
   }
   
-  swvSD.moveAtVelocity(SWV_RUN_VELOCITY);
-  delay((int)round(duration));
-  swvSD.moveAtVelocity(STOP_VELOCITY); // stop
+  swvSD.setSpeed(SWV_RUN_VELOCITY);
+  aoeSD.move((int)(duration*SWV_RUN_VELOCITY));
+  swvSD.setSpeed(STOP_VELOCITY); // stop
 
-  swvSD.disable();
+  if (azAngle < 180 || azAngle = 180) {
+    SWV_RUN_VELOCITY *= -1; // turn it back
+  }
+
+  digitalWrite(SWV_EN_PIN,HIGH);
   secsLeft = 0; // reset after alignment is finished
 }
