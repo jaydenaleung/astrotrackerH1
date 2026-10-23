@@ -3,6 +3,8 @@ Astrotracker H1 is a DIY star tracker camera mount for astrophotography, made to
 
 VIDEO DEMO: [https://youtu.be/irbhYrVtJVo](https://youtu.be/irbhYrVtJVo)
 
+Onshape (CAD Model) Link: [https://cad.onshape.com/documents/bffc36d0f5bca770a27c02a3/w/2a2e8752598234cf6c653f02/e/8318d06d3c2c905c2b13cb54?renderMode=0&uiState=6adab1f747cc560a7bd789e2](https://cad.onshape.com/documents/bffc36d0f5bca770a27c02a3/w/2a2e8752598234cf6c653f02/e/8318d06d3c2c905c2b13cb54?renderMode=0&uiState=6adab1f747cc560a7bd789e2)
+
 <img src="https://github.com/user-attachments/assets/5486cbfa-788f-4783-a8f8-20b3ee48bf0b" height="450">
 <img src="https://github.com/user-attachments/assets/fdabbf7d-fc66-46d1-a8b9-78f6e98e323c" height="450">
 <img src="https://github.com/user-attachments/assets/1529174f-2fba-47f1-aa35-8de9ad0aa9d6" height="450">
