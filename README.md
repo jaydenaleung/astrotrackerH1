@@ -1,7 +1,7 @@
 # Astrotracker H1
 Astrotracker H1 is a DIY star tracker camera mount for astrophotography, made to open access to astrophotography without needing to purchase a more expensive star tracker. Includes a multi-axis rotational gimbal, automatic North Pole alignment, and possible upcoming GoTo integration.
 
-VIDEO DEMO: [https://youtu.be/irbhYrVtJVo](https://youtu.be/irbhYrVtJVo)
+FULL VIDEO DEMO: [https://youtu.be/irbhYrVtJVo](https://youtu.be/irbhYrVtJVo)
 
 Onshape (CAD Model) Link: [https://cad.onshape.com/documents/bffc36d0f5bca770a27c02a3/w/2a2e8752598234cf6c653f02/e/8318d06d3c2c905c2b13cb54?renderMode=0&uiState=6adab1f747cc560a7bd789e2](https://cad.onshape.com/documents/bffc36d0f5bca770a27c02a3/w/2a2e8752598234cf6c653f02/e/8318d06d3c2c905c2b13cb54?renderMode=0&uiState=6adab1f747cc560a7bd789e2)
 
@@ -19,6 +19,14 @@ Onshape (CAD Model) Link: [https://cad.onshape.com/documents/bffc36d0f5bca770a27
 **Total Days Spent:** 33 days
 
 *See JOURNAL.md and the BOM below for an in-depth explanation of these numbers.*
+
+# Overview
+
+Astrotracker H1 is a **budget-friendly, custom star tracker** I built for the highest tier of [Hack Club's Highway "You Ship We Ship" program](https://highway.hackclub.com/). Star trackers assist long exposures in astrophotography by rotating the camera along the rotation of the stars, at **15°/hr**, to eliminate star trails from photos. This device attempts to solve these issues by **upgrading the traditional equatorial mount** to include a **polar scope** for precise alignment, a **counterweight** to balance the camera's weight, **automatic computerized alignment** using azimuthal and latitude (GPS) measurements, and a standard 1/4" tripod mount.
+
+The device uses two plates connected by a hinge and a rotating gear. The bottom plate is the swivel plate, which adjusts the azimuthal heading of the device with a **high-torque motor**. The other plate is the rotational axis (RA) plate, which tilts to **match its angle of elevation to the device's GPS latitude** and is driven by a **precise worm gear with a 60:1 reduction ratio**. These mechanisms allow the device to automatically align with the North Pole, **calibrated using a precise polar scope**. Once the device is aligned, camera rotation will begin, driven by a **NEMA 17 stepper motor with microstepping**. Microstepping enhances these features by increasing the precision and resolution of the stepper motor by **up to 64 times**.
+
+I like to approach my builds in three sections, something I learned from the Highway program: **CAD modeling, PCB design, and firmware**. For large mechanical projects like this, CAD often takes the most time. I model the entire physical assembly and create custom components in the **Onshape software**. Because of the size of the project, I made a **PCB "dashboard" with buttons connected to an ESP32 microcontroller**, and learned that complex PCBs often require multiple iterations! Finally, the **firmware used compass and GPS information** for auto-alignment and drove an LCD display on the dashboard showing the tracker's status.
 
 
 # How It Works
@@ -80,14 +88,13 @@ Apart from the bare-bones mechanism that drives the star tracker, these upgrades
 <img src="https://github.com/user-attachments/assets/82e41896-1b35-4667-9c97-da2e2985ecbb" height="280">
 <img src="https://github.com/user-attachments/assets/578ddc86-da92-454e-837b-f4daa4648be4" height="280">
 
-
 # The 'Why' Behind the Project
 As an avid photographer and engineer myself, I have always wanted to get more involved with astrophotography. Unfortunately, living in a city didn't play out well for me because of the massive amount of light pollution around me, blocking my view of the stars. I knew I wanted to combine my passions, and the opportunity to do so came through Hack Club's Highway to Undercity program. They fund almost any project you propose to them through their You Ship We Ship (YSWS) initiative.
 
 After conducting some research, I found out that a star tracker was one of the most necessary tools to take better pictures of the night sky. Unfortunately, they were all priced around $500 USD - a hefty investment. Building a star tracker would allow me to combine my passions and achieve a more cost-effective solution at the same time.
 
 
-# Why This Is Worth Ten Points
+# Why This Is Worth Ten Points for Highway Program
 This star tracker isn't just any star tracker or equatorial mount - it adds many more complex features that empower young photographers on a budget, like myself, to pursue astrophotography. Fundamentally, the project is already as mechanically complex as a six-point project without all of the additional features. The time spent building intricate features into the mechanical model, custom footprints into the PCB, and special features into the firmware truly takes this project above and beyond the guidelines for a six-point project. 
 
 Not only did I pay attention to the detail and precision needed for such a device with the bubble level, high reduction ratios, and microstepping, but I also considered what would take this above its minimum viable product by adding complex logic for auto-alignment, a balancing counterweight to increase control, and an intuitive LCD user interface controlled with standard pushbuttons. Being able to connect all the electrical components on a single, thought-out PCB and the firmware logic for tracking and auto-alignment indeed also makes this project electrically and computationally complex. Furthermore, I was able to achieve all of these features for under $300 USD when most market star trackers cost about $500 USD. Finally, I spent a ton of time perfecting every detail and feature, putting in almost sixty hours *before* building it (while the recommended minimum time spent for a ten-point project is fifty hours).
